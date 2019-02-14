@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+# slim
+gem 'slim-rails'
+gem 'html2slim'
+
 # bootstrap
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
