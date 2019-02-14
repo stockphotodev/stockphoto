@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+# devise
+gem 'devise'
+
 # slim
 gem 'slim-rails'
 gem 'html2slim'
