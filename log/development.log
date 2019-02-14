@@ -843,3 +843,19 @@ Processing by TestController#new as HTML
 Completed 200 OK in 85ms (Views: 83.0ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/test/new" for 127.0.0.1 at 2019-02-14 12:54:02 +0900
+  [1m[35m (14.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ vendor/bundle/ruby/2.4.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by TestController#new as HTML
+  Rendering test/new.html.slim within layouts/application
+  Rendered test/new.html.slim within layouts/application (15.2ms)
+Completed 200 OK in 114ms (Views: 111.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/test/new" for 127.0.0.1 at 2019-02-14 12:54:04 +0900
+Processing by TestController#new as HTML
+  Rendering test/new.html.slim within layouts/application
+  Rendered test/new.html.slim within layouts/application (6.3ms)
+Completed 200 OK in 84ms (Views: 81.7ms | ActiveRecord: 0.0ms)
+
+
