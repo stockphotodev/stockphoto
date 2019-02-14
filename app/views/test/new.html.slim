@@ -13,3 +13,5 @@ nav.navbar.navbar-light.bg-light
 
 a
   = image_tag('/assets/hogehoge.png')
+a
+  = link_to 'LOGOUT', destroy_user_session_path, method: :delete
