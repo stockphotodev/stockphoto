@@ -23,4 +23,6 @@ yarn-debug.log*
 /.bundle
 /vendor
 .env
+
+config/master.key
 # End of https://www.gitignore.io/api/rails~
