@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: stockphoto_production
-  username: stockphoto
-  password: <%= ENV['STOCKPHOTO_DATABASE_PASSWORD'] %>
+  username: <%= ENV.fetch('STOCKPHOTO_DATABASE_USER_NAME') %>
+  password: <%= ENV.fetch('STOCKPHOTO_DATABASE_PASSWORD') %>
+  host: <%= ENV.fetch('STOCKPHOTO_HOST_PRODUCTION') %>
