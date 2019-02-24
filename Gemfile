@@ -15,8 +15,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 # for image uploader with AWS S3
-#gem 'carrierwave'
-#gem 'fog'
+gem 'carrierwave'
+gem 'fog'
 gem 'aws-sdk'
 
 gem 'dotenv-rails'
