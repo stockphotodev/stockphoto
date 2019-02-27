@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :test
 
   namespace :admin do
+    get '/' => 'top#index'
     devise_for :admin_users
     resources :images
   end
