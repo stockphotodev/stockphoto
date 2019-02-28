@@ -12,10 +12,11 @@ class Admin::ImagesController < ApplicationController
 
     image = image_params[:image]
     image_name = image.original_filename
-    s3_path = "uploads/#{image_name}"
+    s3_path = "uploads/#{Date.today}/#{Time.now.to_s(:file_name)}_#{image_name}"
     object = bucket.object(s3_path)
     object.put(body: image)
-    @image.image = image_name
+    @image.file_name = image_name
+    @image.path = s3_path
     if @image.save
       redirect_to admin_images_path, notice: 'imageが追加されました'
     end
