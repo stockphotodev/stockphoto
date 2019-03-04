@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :images
     resources :illustrations
     resources :movies
+    resources :categories
     resources :tags
   end
 
