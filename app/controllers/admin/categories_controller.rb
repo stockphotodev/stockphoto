@@ -7,7 +7,7 @@ class Admin::CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to admin_categories_path, notice: 'imageが追加されました'
+      redirect_to admin_categories_path, notice: 'カテゴリーが追加されました'
     end
   end
 
