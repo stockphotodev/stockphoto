@@ -1190,6 +1190,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   fog
+  fog-aws
   html2slim
   jbuilder (~> 2.5)
   jquery-rails
