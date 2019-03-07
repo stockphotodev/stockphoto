@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+# admin
+gem 'rails_admin', '~> 1.3'
+
 # devise
 gem 'devise'
 
