@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_113415) do
+ActiveRecord::Schema.define(version: 2019_03_10_040225) do
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,6 +34,24 @@ ActiveRecord::Schema.define(version: 2019_03_07_113415) do
     t.string "illustration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "image_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "image_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_image_categories_on_category_id"
+    t.index ["image_id"], name: "index_image_categories_on_image_id"
+  end
+
+  create_table "image_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "image_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_image_tags_on_image_id"
+    t.index ["tag_id"], name: "index_image_tags_on_tag_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,4 +84,8 @@ ActiveRecord::Schema.define(version: 2019_03_07_113415) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "image_categories", "categories"
+  add_foreign_key "image_categories", "images"
+  add_foreign_key "image_tags", "images"
+  add_foreign_key "image_tags", "tags"
 end
