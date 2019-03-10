@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_040225) do
+ActiveRecord::Schema.define(version: 2019_03_10_040836) do
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,6 +28,24 @@ ActiveRecord::Schema.define(version: 2019_03_10_040225) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "illustration_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "illustration_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_illustration_categories_on_category_id"
+    t.index ["illustration_id"], name: "index_illustration_categories_on_illustration_id"
+  end
+
+  create_table "illustration_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "illustration_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["illustration_id"], name: "index_illustration_tags_on_illustration_id"
+    t.index ["tag_id"], name: "index_illustration_tags_on_tag_id"
   end
 
   create_table "illustrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,6 +102,10 @@ ActiveRecord::Schema.define(version: 2019_03_10_040225) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "illustration_categories", "categories"
+  add_foreign_key "illustration_categories", "illustrations"
+  add_foreign_key "illustration_tags", "illustrations"
+  add_foreign_key "illustration_tags", "tags"
   add_foreign_key "image_categories", "categories"
   add_foreign_key "image_categories", "images"
   add_foreign_key "image_tags", "images"
