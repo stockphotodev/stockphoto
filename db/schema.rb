@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_040836) do
+ActiveRecord::Schema.define(version: 2019_03_10_041510) do
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -78,6 +78,24 @@ ActiveRecord::Schema.define(version: 2019_03_10_040836) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "movie_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "movie_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_movie_categories_on_category_id"
+    t.index ["movie_id"], name: "index_movie_categories_on_movie_id"
+  end
+
+  create_table "movie_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "movie_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_movie_tags_on_movie_id"
+    t.index ["tag_id"], name: "index_movie_tags_on_tag_id"
+  end
+
   create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "movie"
     t.datetime "created_at", null: false
@@ -110,4 +128,8 @@ ActiveRecord::Schema.define(version: 2019_03_10_040836) do
   add_foreign_key "image_categories", "images"
   add_foreign_key "image_tags", "images"
   add_foreign_key "image_tags", "tags"
+  add_foreign_key "movie_categories", "categories"
+  add_foreign_key "movie_categories", "movies"
+  add_foreign_key "movie_tags", "movies"
+  add_foreign_key "movie_tags", "tags"
 end

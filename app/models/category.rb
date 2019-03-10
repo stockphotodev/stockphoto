@@ -6,4 +6,7 @@ class Category < ApplicationRecord
   has_many :illustration_categories
   has_many :illustrations, through: :illustration_categories
 
+  has_many :movie_categories
+  has_many :movies, through: :movie_categories
+
 end

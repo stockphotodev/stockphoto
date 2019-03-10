@@ -6,4 +6,7 @@ class Tag < ApplicationRecord
   has_many :illustration_tags
   has_many :illustrations, through: :illustration_tags
 
+  has_many :movie_tags
+  has_many :movies, through: :movie_tags
+
 end
