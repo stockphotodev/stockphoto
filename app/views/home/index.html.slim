@@ -1,5 +1,14 @@
 = render 'layouts/header'
 
-h1 テスト
+h1 新着画像
+- @images.each do |image|
+  a
+    = image_tag(image.image.to_s)
 
+h1 新着イラスト
+- @illustrations.each do |illustration|
+  a
+    = image_tag(illustration.illustration.to_s)
+
+h1 新着動画
 footer.hoge_footer フッター
