@@ -5,12 +5,12 @@ form.form-inline.justify-content-center.top_form
 .top_new_arrivals
   h1 新着画像
   - @images.each do |image|
-    a
+    = link_to image_path(image.id)
       = image_tag(image.image.thumb.url)
 .top_new_arrivals
   h1 新着イラスト
   - @illustrations.each do |illustration|
-    a
+    = link_to illustration_path(illustration.id)
       = image_tag(illustration.illustration.to_s)
 .top_new_arrivals
   h1 新着動画
