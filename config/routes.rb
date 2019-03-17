@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :images
   resources :illustrations
+  resources :movies
   resources :test
 
   namespace :admin do

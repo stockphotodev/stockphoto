@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+# readline
+gem 'rb-readline'
+
 # admin
 gem 'rails_admin', '~> 1.3'
 gem 'cancancan'
@@ -23,6 +26,9 @@ gem 'carrierwave'
 gem 'fog'
 gem 'fog-aws'
 gem 'aws-sdk'
+
+# create thumbnail for movie
+gem 'streamio-ffmpeg'
 
 gem 'dotenv-rails'
 gem 'config'

@@ -14,4 +14,7 @@ form.form-inline.justify-content-center.top_form
       = image_tag(illustration.illustration.to_s)
 .top_new_arrivals
   h1 新着動画
+  - @movies.each do |movie|
+    = link_to movie_path(movie.id)
+      = image_tag(movie.movie.screenshot.url)
 = render 'layouts/footer'
