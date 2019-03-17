@@ -1,0 +1,6 @@
+h1 動画一覧
+- if @movies.present?
+  - @movies.each do |movie|
+    = image_tag(movie.movie.screenshot.url)
+- else
+  h2 該当の画像はありません

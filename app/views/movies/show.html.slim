@@ -1,1 +1,29 @@
-h1 movieshow
+= render 'layouts/header'
+h1 イメージshow
+= image_tag(@movie.movie.screenshot.url)
+- if user_signed_in?
+  / h2 画像サイズ
+  /   #{@image.image.height} × #{@image.image.width}
+  a href="#" ！利用可能な用途と禁止事項
+- else
+  h2 ログイン
+  button.btn.btn-primary data-target=".bd-example-modal-lg" data-toggle="modal" type="button"  Large modal
+  .modal.fade.bd-example-modal-lg aria-hidden="true" aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1"
+    .modal-dialog.modal-lg
+      .modal-content
+        = form_for(resource_name, as: resource_name, url: session_path(resource)) do |f|
+          .field
+            = f.label :email
+            br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .field
+            = f.label :password
+            br/
+            = f.password_field :password, autocomplete: "current-password"
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+            = f.label :remember_me
+          .actions
+            = f.submit "ログイン"
+= render 'layouts/header'
