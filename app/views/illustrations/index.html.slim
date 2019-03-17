@@ -1,0 +1,6 @@
+h1 イラスト一覧
+- if @illustrations.present?
+  - @illustrations.each do |illustration|
+    = image_tag(illustration.illustration.url)
+- else
+  h2 該当の画像はありません
