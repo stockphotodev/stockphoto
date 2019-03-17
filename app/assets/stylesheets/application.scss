@@ -48,3 +48,8 @@ footer {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+// ドロップメニューをホバー表示
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

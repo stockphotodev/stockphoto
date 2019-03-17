@@ -5,18 +5,19 @@ header
 
     ul.nav
       li.nav-item.dropdown
-        a.nav-link.dropdown-toggle[data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"]
+        a.nav-link.dropdown-toggle[data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="header-hover"]
           | 画像
         .dropdown-menu
-          a.dropdown-item[href="#"]
-            | Action
-          a.dropdown-item[href="#"]
-            | Another action
-          a.dropdown-item[href="#"]
-            | Something else here
-          .dropdown-divider
-          a.dropdown-item[href="#"]
-            | Separated link
+          - @categories.each do |category|
+            a.dropdown-item
+              = link_to category.name, images_path(category.id)
+          / a.dropdown-item[href="#"]
+          /   | Another action
+          / a.dropdown-item[href="#"]
+          /   | Something else here
+          / .dropdown-divider
+          / a.dropdown-item[href="#"]
+          /   | Separated link
       li.nav-item.dropdown
         a.nav-link.dropdown-toggle[data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"]
           | イラスト

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :set_category
   before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_user!
 
@@ -21,5 +22,9 @@ class ApplicationController < ActionController::Base
 
     def after_sign_in_path_for(resource_or_scope)
       stored_location_for(resource_or_scope) || super
+    end
+
+    def set_category
+      @categories = Category.all
     end
 end
