@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
   devise_for :users
-  resources :images
+  resources :images do
+    post 'download' => 'images#download'
+  end
   resources :illustrations
   resources :movies
   resources :test

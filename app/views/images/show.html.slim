@@ -5,6 +5,7 @@ h1 イメージshow
   h2 画像サイズ
     #{@image.image.height} × #{@image.image.width}
   a href="#" ！利用可能な用途と禁止事項
+  = link_to 'ダウンロード', image_download_path(@image), class: 'btn btn-info', data: { turbolinks: false }, method: :post
 - else
   h2 ログイン
   button.btn.btn-primary data-target=".bd-example-modal-lg" data-toggle="modal" type="button"  Large modal

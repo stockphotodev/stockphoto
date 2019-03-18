@@ -11,6 +11,13 @@ class ImagesController < ApplicationController
 
   end
 
+  def download
+    @image = Image.find(params[:image_id])
+    filepath = @image.image.current_path
+    data = open(@image.image.url)
+    send_data(data.read, filename: @image.image_identifier, type: @image.image.content_type)
+  end
+
   private
 
   def set_image
