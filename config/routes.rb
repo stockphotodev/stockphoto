@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :illustrations do
     post 'download' => 'illustrations#download'
   end
-  resources :movies
+  resources :movies do
+    post 'download' => 'movies#download'
+  end
   resources :test
 
   namespace :admin do

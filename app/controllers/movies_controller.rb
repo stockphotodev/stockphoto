@@ -11,6 +11,13 @@ class MoviesController < ApplicationController
 
   end
 
+  def download
+    @movie = Movie.find(params[:movie_id])
+    filepath = @movie.movie.current_path
+    data = open(@movie.movie.url)
+    send_data(data.read, filename: @movie.movie_identifier, type: @movie.movie.content_type)
+  end
+
   private
 
   def set_movie
