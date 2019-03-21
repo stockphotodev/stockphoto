@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :images do
     post 'download' => 'images#download'
   end
-  resources :illustrations
+  resources :illustrations do
+    post 'download' => 'illustrations#download'
+  end
   resources :movies
   resources :test
 

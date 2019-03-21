@@ -3,8 +3,9 @@ h1 イラスト詳細
 = image_tag(@illustration.illustration.url)
 - if user_signed_in?
   h2 イラストサイズ
-    #{@illustration.illustration.height} × #@illustration.illustration.width}
+    #{@illustration.illustration.height} × #{@illustration.illustration.width}
   a href="#" ！利用可能な用途と禁止事項
+  = link_to 'ダウンロード', illustration_download_path(@illustration), class: 'btn btn-info', data: { turbolinks: false }, method: :post
 - else
   h2 ログイン
   button.btn.btn-primary data-target=".bd-example-modal-lg" data-toggle="modal" type="button"  Large modal
@@ -27,8 +28,3 @@ h1 イラスト詳細
           .actions
             = f.submit "ログイン"
 = render 'layouts/header'
-
-
-
-
-h1 イラストshow
