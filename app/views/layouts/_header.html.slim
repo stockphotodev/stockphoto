@@ -29,5 +29,11 @@ header
     ul.nav.ml-md-auto
       li.nav-item
         a.nav-link href="#"  料金プラン
-      li.nav-item
-        a.nav-link href="#"  ログイン
+      - unless user_signed_in?
+        li.nav-item
+          button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#logInModal" data-toggle="modal" type="button" ログイン
+      - else
+        li.nav-item
+          a
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
+= render partial: 'devise/sessions/new'
