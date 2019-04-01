@@ -1,0 +1,31 @@
+#logInModal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5.modal-title Log In
+        button.close data-dismiss="modal" type="button" 
+          span ×
+      .modal-body
+        div
+          h1 Log In
+          br/
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .wrap
+              .field
+                label for="email"  Email
+                = f.email_field :email
+              .field
+                label for="password"  Password
+                = f.password_field :password, autocomplete: "off"
+              br/
+              div
+                - if devise_mapping.rememberable?
+                  .field
+                    = f.check_box :remember_me
+                    = f.label :remember_me
+              div
+                = f.submit "Log in", class: 'btn btn-primary'
+              div
+                - render "devise/shared/links"
+      .modal-footer
+        button.btn.btn-danger data-dismiss="modal" type="button"  Close
