@@ -16,3 +16,10 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+$( function() {
+    // 料金プランからアカウント登録へのモーダル切り替え
+    $('#account_modal').click( function () {
+        $('#planModal').modal('hide');
+    });
+});

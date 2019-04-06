@@ -28,7 +28,7 @@ header
               = link_to category.name, movies_path(category.id)
     ul.nav.ml-md-auto
       li.nav-item
-        a.nav-link href="#"  料金プラン
+        button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#planModal" data-toggle="modal" type="button" style="margin-right:20px;" 料金プラン
       - unless user_signed_in?
         li.nav-item
           button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#logInModal" data-toggle="modal" type="button" ログイン
@@ -37,3 +37,35 @@ header
           a
             = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
 = render partial: 'devise/sessions/new'
+
+#planModal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5.modal-title 料金プラン
+        button.close data-dismiss="modal" type="button"
+          span ×
+      .modal-body
+        ul#myTab.nav.nav-tabs role="tablist"
+          li.nav-item
+            a#light-tab.nav-link.active aria-controls="light" aria-selected="true" data-toggle="tab" href="#home" role="tab"  ライト
+          li.nav-item
+            a#basic-tab.nav-link aria-controls="basic" aria-selected="false" data-toggle="tab" href="#profile" role="tab"  ベーシック
+          li.nav-item
+            a#royal-tab.nav-link aria-controls="royal" aria-selected="false" data-toggle="tab" href="#contact" role="tab"  ロイヤル
+          li.nav-item
+            a#proffesional-tab.nav-link aria-controls="professional" aria-selected="false" data-toggle="tab" href="#contact" role="tab"  プロフェッショナル
+
+        #myTabContent.tab-content
+          #light.tab-pane.fade.show.active aria-labelledby="light-tab" role="tabpanel"  ...
+          #basic.tab-pane.fade aria-labelledby="basic-tab" role="tabpanel"  ...
+          #royal.tab-pane.fade aria-labelledby="royal-tab" role="tabpanel"  ...
+          #proffesional.tab-pane.fade aria-labelledby="professional-tab" role="tabpanel"  ...
+
+      .modal-body
+        div
+          br/
+          button.btn.btn-success.mt10 id="account_modal" style="width:100%;border-top:1px solid #e9ecef;margin-right:5px;" data-target="#logInModal" data-toggle="modal" アカウントを作成
+          - render "devise/shared/links"
+      .modal-footer
+        button.btn.btn-danger data-dismiss="modal" type="button"  Close
