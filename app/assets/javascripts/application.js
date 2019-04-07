@@ -22,4 +22,11 @@ $( function() {
     $('#account_modal').click( function () {
         $('#planModal').modal('hide');
     });
+
+    // 料金プランのタブ切り替え
+    $('#myTab li a').click( function () {
+        $('.active').removeClass('active');
+        $(this).addClass("active");
+        $($(this).attr("href")).addClass("active");
+    });
 });
