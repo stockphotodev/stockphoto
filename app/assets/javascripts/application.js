@@ -19,8 +19,13 @@
 
 $( function() {
     // 料金プランからアカウント登録へのモーダル切り替え
-    $('#account_modal').click( function () {
+    $('#planToRegistration').click( function () {
         $('#planModal').modal('hide');
+    });
+
+    // ログインからアカウント登録へのモーダル切り替え
+    $('#logInToRegistration').click( function () {
+        $('#logInModal').modal('hide');
     });
 
     // 料金プランのタブ切り替え

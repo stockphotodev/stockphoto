@@ -37,6 +37,7 @@ header
           a
             = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
 = render partial: 'devise/sessions/new'
+= render partial: 'devise/registrations/new'
 
 #planModal.modal.fade
   .modal-dialog
@@ -144,7 +145,7 @@ header
       .modal-body
         div
           br/
-          button.btn.btn-success.mt10 id="account_modal" style="width:100%;border-top:1px solid #e9ecef;margin-right:5px;" data-target="#logInModal" data-toggle="modal" アカウントを作成
-          - render "devise/shared/links"
+          button.btn.btn-success.mt10 id="planToRegistration" style="width:100%;border-top:1px solid #e9ecef;margin-right:5px;" data-target="#registrationModal" data-toggle="modal" アカウントを作成
+          / - render "devise/shared/links"
       .modal-footer
         button.btn.btn-danger data-dismiss="modal" type="button"  Close
