@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   end
   resources :test
 
+  get 'terms', to: 'terms#index'
+  
+
   namespace :admin do
     get '/' => 'top#index'
     devise_for :admin_users
