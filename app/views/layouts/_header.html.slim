@@ -27,9 +27,9 @@ header
             a.dropdown-item
               = link_to category.name, movies_path(category.id)
     ul.nav.ml-md-auto
-      li.nav-item
-        button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#planModal" data-toggle="modal" type="button" style="margin-right:20px;" 料金プラン
       - unless user_signed_in?
+        li.nav-item
+          button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#planModal" data-toggle="modal" type="button" style="margin-right:20px;" 料金プラン
         li.nav-item
           button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#logInModal" data-toggle="modal" type="button" ログイン
       - else
