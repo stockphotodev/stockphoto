@@ -19,7 +19,8 @@
               div
                 - if devise_mapping.rememberable?
                   .field
-                    a href="users/password/new" パスワードをお忘れですか？
+                    a 
+                      = link_to "パスワードをお忘れですか？", "#", id: "logInToPasswordReminder", class: "btn", "data-toggle" => "modal", "data-target" => "#passwordReminderModal"
               div
                 = f.submit "ログイン", class: 'btn btn-primary', style: 'width:100%'
       .modal-body style="border-top:1px solid #e9ecef"

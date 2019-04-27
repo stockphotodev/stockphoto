@@ -8,10 +8,10 @@
       .modal-body
         div
           br/
-          = form_for(resource, as: resource_name, url: passwords_path(resource_name)) do |f|
+          = form_for(resource, as: resource_name, url: password_path(resource_name)) do |f|
             .wrap
               .field
-                = f.email_field :email, placeholder: "メールアドレス", style: 'width:100%', id: 'registration_email'
+                = f.email_field :email, placeholder: "メールアドレス", style: 'width:100%', id: 'password_reminder_email'
               br/
               div
                 = f.submit "再設定リンクを送信", class: 'btn btn-primary', style: 'width:100%'
