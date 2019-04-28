@@ -65,3 +65,47 @@ footer {
 .modal-content {
     width:510px;
 }
+
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin-top:50px;
+  text-align:center;
+}
+
+// 料金プランのテーブルデザイン
+table tr{
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+table tr:hover{
+  background-color: #d4f0fd;
+}
+
+table th,table td{
+  text-align: center;
+  width: 25%;
+  padding: 10px 0;
+}
+
+table td.icon{
+  background-size: 35px;
+  background-position: left 5px center;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+
+table td.icon.bird{
+  background-image: url(icon-bird.png)
+}
+
+table td.icon.whale{
+  background-image: url(icon-whale.png)
+}
+
+table td.icon.crab{
+  background-image: url(icon-crab.png)
+}
