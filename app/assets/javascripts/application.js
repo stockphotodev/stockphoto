@@ -28,6 +28,11 @@ $( function() {
         $('#logInModal').modal('hide');
     });
 
+    // アカウント登録から契約手続きへのモーダル切り替え
+    $('#registrationToAgreement').click( function () {
+        $('#registrationModal').modal('hide');
+    });
+
     // ログインからパスワードリマインダーへのモーダル切り替え
     $('#logInToPasswordReminder').click( function () {
         $('#logInModal').modal('hide');
