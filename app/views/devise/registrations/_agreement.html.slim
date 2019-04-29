@@ -15,8 +15,15 @@
                   option value="#{plan.id}" #{plan.name}：#{plan.period_i18n}
 
         div
+          .custom-control.custom-checkbox
+            input#customCheck1.custom-control-input type="checkbox" 
+            label.custom-control-label for="customCheck1"
+              = link_to '利用規約', '/terms'
+              | 及び
+              =	link_to	'プライバシーポリシー', '/terms'
+              | に同意する
           br/
-          button.btn.btn-success.mt10 id="agreementToThanks" style="width:100%;border-top:1px solid #e9ecef" data-target="#thanksModal" data-toggle="modal" 注文を完了する
+          button.btn.btn-success.mt10 id="agreementToThanks" style="width:100%;border-top:1px solid #e9ecef" data-target="#thanksModal" data-toggle="modal" disabled=true 注文を完了する
 
       .modal-footer
         button.btn.btn-danger data-dismiss="modal" type="button"  Close
