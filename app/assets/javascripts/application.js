@@ -38,6 +38,11 @@ $( function() {
         $('#logInModal').modal('hide');
     });
 
+    // ログインからパスワードリマインダーへのモーダル切り替え
+    $('#agreementToThanks').click( function () {
+        $('#agreementModal').modal('hide');
+    });
+
     // 料金プランのタブ切り替え
     $('#myTab li a').click( function () {
         $('.active').removeClass('active');
