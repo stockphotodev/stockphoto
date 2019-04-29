@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   devise_for :users
   resources :images do
     post 'download' => 'images#download'
+    get 'tag' => 'images#tag', on: :collection
   end
   resources :illustrations do
     post 'download' => 'illustrations#download'
+    post 'tag' => 'illustrations#tag'
   end
   resources :movies do
     post 'download' => 'movies#download'
+    post 'tag' => 'movies#tag'
   end
   resources :test
 
