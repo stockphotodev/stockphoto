@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_category
+  before_action :set_plans
   before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_user!
 
@@ -26,5 +27,9 @@ class ApplicationController < ActionController::Base
 
     def set_category
       @categories = Category.all
+    end
+
+    def set_plans
+      @plans = Plan.all
     end
 end
