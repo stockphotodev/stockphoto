@@ -44,4 +44,14 @@ $( function() {
         $(this).addClass("active");
         $($(this).attr("href")).addClass("active");
     });
+
+    // 規約同意のチェックボックスの状態によってボタンを切り替え
+    $('#agreementCheck').click( function () {
+        var btn = document.getElementById('agreementToThanks');
+        if ($('#agreementCheck').prop('checked')) {
+            btn.removeAttribute('disabled');
+        } else {
+            btn.setAttribute('disabled', 'disabled');
+        }
+    });
 });
