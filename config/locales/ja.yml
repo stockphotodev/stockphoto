@@ -1,0 +1,6 @@
+ja:
+  enums:
+    plan:
+      period:
+        monthly: '月額'
+        yearly: '年額'

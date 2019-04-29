@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+# locales
+gem 'rails-i18n'
+gem 'enum_help'
+
 # readline
 gem 'rb-readline'
 

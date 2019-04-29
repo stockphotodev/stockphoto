@@ -52,7 +52,7 @@ header
       .modal-body
         ul#myTab.nav.nav-tabs role="tablist"
           li.nav-item
-            a#light-tab.nav-link.active aria-controls="light" aria-selected="true" data-toggle="tab" href="#light" role="tab"  ライト
+            a#light-tab.nav-link.active aria-controls="light" aria-selected="true" data-toggle="tab" href="#light" role="tab" ライト
           li.nav-item
             a#basic-tab.nav-link aria-controls="basic" aria-selected="false" data-toggle="tab" href="#basic" role="tab"  ベーシック
           li.nav-item
@@ -70,17 +70,17 @@ header
                 th.posted 動画
                 th.replies 月額料金
               tr
-                td.category = "月額"
-                td.title = "月10枚"
-                td.contributor = "月10枚"
-                td.posted = "月5本"
-                td.replies = "￥10000"
+                td.category = "#{@plans[0].period_i18n}"
+                td.title = "月#{@plans[0].limit_of_image}枚"
+                td.contributor = "月#{@plans[0].limit_of_illustration}枚"
+                td.posted = "月#{@plans[0].limit_of_movie}本"
+                td.replies = "￥#{@plans[0].price}"
               tr
-                td.category = "年額"
-                td.title = "月10枚"
-                td.contributor = "月10枚"
-                td.posted = "月5本"
-                td.replies = "￥6000"
+                td.category = "#{@plans[1].period_i18n}"
+                td.title = "月#{@plans[1].limit_of_image}枚"
+                td.contributor = "月#{@plans[1].limit_of_illustration}枚"
+                td.posted = "月#{@plans[1].limit_of_movie}本"
+                td.replies = "￥#{@plans[1].price}"
 
           #basic.tab-pane.fade.show aria-labelledby="basic-tab" role="tabpanel"
             table
@@ -91,17 +91,17 @@ header
                 th.posted 動画
                 th.replies 月額料金
               tr
-                td.category = "月額"
-                td.title = "月20枚"
-                td.contributor = "月20枚"
-                td.posted = "月10本"
-                td.replies = "￥18000"
+                td.category = "#{@plans[2].period_i18n}"
+                td.title = "月#{@plans[2].limit_of_image}枚"
+                td.contributor = "月#{@plans[2].limit_of_illustration}枚"
+                td.posted = "月#{@plans[2].limit_of_movie}本"
+                td.replies = "￥#{@plans[2].price}"
               tr
-                td.category = "年額"
-                td.title = "月20枚"
-                td.contributor = "月20枚"
-                td.posted = "月10本"
-                td.replies = "￥10800"
+                td.category = "#{@plans[3].period_i18n}"
+                td.title = "月#{@plans[3].limit_of_image}枚"
+                td.contributor = "月#{@plans[3].limit_of_illustration}枚"
+                td.posted = "月#{@plans[3].limit_of_movie}本"
+                td.replies = "￥#{@plans[3].price}"
 
           #royal.tab-pane.fade.show aria-labelledby="royal-tab" role="tabpanel"
             table
@@ -112,17 +112,17 @@ header
                 th.posted 動画
                 th.replies 月額料金
               tr
-                td.category = "月額"
-                td.title = "月30枚"
-                td.contributor = "月30枚"
-                td.posted = "月15本"
-                td.replies = "￥24000"
+                td.category = "#{@plans[4].period_i18n}"
+                td.title = "月#{@plans[4].limit_of_image}枚"
+                td.contributor = "月#{@plans[4].limit_of_illustration}枚"
+                td.posted = "月#{@plans[4].limit_of_movie}本"
+                td.replies = "￥#{@plans[4].price}"
               tr
-                td.category = "年額"
-                td.title = "月30枚"
-                td.contributor = "月30枚"
-                td.posted = "月15本"
-                td.replies = "￥14400"
+                td.category = "#{@plans[5].period_i18n}"
+                td.title = "月#{@plans[5].limit_of_image}枚"
+                td.contributor = "月#{@plans[5].limit_of_illustration}枚"
+                td.posted = "月#{@plans[5].limit_of_movie}本"
+                td.replies = "￥#{@plans[5].price}"
 
           #professional.tab-pane.fade.show aria-labelledby="professional-tab" role="tabpanel"
             table
@@ -133,17 +133,17 @@ header
                 th.posted 動画
                 th.replies 月額料金
               tr
-                td.category = "月額"
-                td.title = "月50枚"
-                td.contributor = "月50枚"
-                td.posted = "月30本"
-                td.replies = "￥30000"
+                td.category = "#{@plans[6].period_i18n}"
+                td.title = "月#{@plans[6].limit_of_image}枚"
+                td.contributor = "月#{@plans[6].limit_of_illustration}枚"
+                td.posted = "月#{@plans[6].limit_of_movie}本"
+                td.replies = "￥#{@plans[6].price}"
               tr
-                td.category = "年額"
-                td.title = "月50枚"
-                td.contributor = "月50枚"
-                td.posted = "月30本"
-                td.replies = "￥18000"
+                td.category = "#{@plans[7].period_i18n}"
+                td.title = "月#{@plans[7].limit_of_image}枚"
+                td.contributor = "月#{@plans[7].limit_of_illustration}枚"
+                td.posted = "月#{@plans[7].limit_of_movie}本"
+                td.replies = "￥#{@plans[7].price}"
 
       .modal-body
         div
