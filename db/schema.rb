@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_021120) do
+ActiveRecord::Schema.define(version: 2019_04_29_090330) do
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_04_29_021120) do
   end
 
   create_table "illustrations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.string "illustration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_04_29_021120) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_04_29_021120) do
   end
 
   create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.string "movie"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
