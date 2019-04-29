@@ -1,9 +1,7 @@
 class CreateMovieTags < ActiveRecord::Migration[5.2]
   def change
     create_table :movie_tags do |t|
-      t.references :movie, foreign_key: true
-      t.references :tag, foreign_key: true
-
+      t.string :name
       t.timestamps
     end
   end
