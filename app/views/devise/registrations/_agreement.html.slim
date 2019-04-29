@@ -7,6 +7,14 @@
           span ×
       .modal-body
         div
+          form
+            .form-group
+              label.control-label for="recipient-name" 契約プラン
+              select.custom-select.custom-select-lg.mb-3 style="width:100%;border-top:1px solid #e9ecef"
+                - @plans.each do |plan|
+                  option value="#{plan.id}" #{plan.name}：#{plan.period_i18n}
+
+        div
           br/
           button.btn.btn-success.mt10 id="agreementToThanks" style="width:100%;border-top:1px solid #e9ecef" data-target="#thanksModal" data-toggle="modal" 注文を完了する
 
