@@ -1,4 +1,10 @@
 h1 イメージタグ
+h2 タグ一覧
+- @tags.each do |tag|
+  a.btn.btn-primary href="/images/tag?tag_id=#{tag.id}" role="button" style="margin:2px;" #{tag.name}
+
+h2 類似イメージ一覧
 - @images.each do |image|
-  = image_tag(image.image.url)
+  = link_to image_path(image.id)
+    = image_tag(image.image.thumb.url)
   p = image.name
