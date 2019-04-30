@@ -1,0 +1,10 @@
+h1 動画タグ
+h2 タグ一覧
+- @tags.each do |tag|
+  a.btn.btn-primary href="/movies/tag?tag_id=#{tag.id}" role="button" style="margin:2px;" #{tag.name}
+
+h2 類似動画一覧
+- @movies.each do |movie|
+  = link_to movie_path(movie.id)
+    = image_tag(movie.movie.screenshot.url)
+  p = movie.name
