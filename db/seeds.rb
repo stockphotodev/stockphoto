@@ -21,4 +21,17 @@ Plan.create(name: 'ロイヤル', period: 1, limit_of_image: 30, limit_of_illust
 Plan.create(name: 'プロフェッショナル', period: 0, limit_of_image: 50, limit_of_illustration: 50, limit_of_movie: 30, price: 30000)
 Plan.create(name: 'プロフェッショナル', period: 1, limit_of_image: 50, limit_of_illustration: 50, limit_of_movie: 30, price: 18000)
 
-# tag
+# image_tag
+ImageTag.create(name: 'イメージタグ1')
+ImageTag.create(name: 'イメージタグ2')
+ImageTag.create(name: 'イメージタグ3')
+
+# illustration_tag
+IllustrationTag.create(name: 'イラストタグ1')
+IllustrationTag.create(name: 'イラストタグ2')
+IllustrationTag.create(name: 'イラストタグ3')
+
+# movie_tag
+MovieTag.create(name: '動画タグ1')
+MovieTag.create(name: '動画タグ2')
+MovieTag.create(name: '動画タグ3')

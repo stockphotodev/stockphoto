@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_090330) do
+ActiveRecord::Schema.define(version: 2019_04_29_233517) do
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 2019_04_29_090330) do
     t.index ["illustration_id"], name: "index_illustration_categories_on_illustration_id"
   end
 
+  create_table "illustration_illustration_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "illustration_id"
+    t.bigint "illustration_tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["illustration_id", "illustration_tag_id"], name: "illustration_illustration_tags_index", unique: true
+    t.index ["illustration_id"], name: "index_illustration_illustration_tags_on_illustration_id"
+    t.index ["illustration_tag_id"], name: "index_illustration_illustration_tags_on_illustration_tag_id"
+  end
+
   create_table "illustration_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -61,6 +71,15 @@ ActiveRecord::Schema.define(version: 2019_04_29_090330) do
     t.index ["image_id"], name: "index_image_categories_on_image_id"
   end
 
+  create_table "image_image_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "image_id"
+    t.bigint "image_tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_image_image_tags_on_image_id"
+    t.index ["image_tag_id"], name: "index_image_image_tags_on_image_tag_id"
+  end
+
   create_table "image_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -81,6 +100,15 @@ ActiveRecord::Schema.define(version: 2019_04_29_090330) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_movie_categories_on_category_id"
     t.index ["movie_id"], name: "index_movie_categories_on_movie_id"
+  end
+
+  create_table "movie_movie_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "movie_id"
+    t.bigint "movie_tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["movie_id"], name: "index_movie_movie_tags_on_movie_id"
+    t.index ["movie_tag_id"], name: "index_movie_movie_tags_on_movie_tag_id"
   end
 
   create_table "movie_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -122,8 +150,14 @@ ActiveRecord::Schema.define(version: 2019_04_29_090330) do
 
   add_foreign_key "illustration_categories", "categories"
   add_foreign_key "illustration_categories", "illustrations"
+  add_foreign_key "illustration_illustration_tags", "illustration_tags"
+  add_foreign_key "illustration_illustration_tags", "illustrations"
   add_foreign_key "image_categories", "categories"
   add_foreign_key "image_categories", "images"
+  add_foreign_key "image_image_tags", "image_tags"
+  add_foreign_key "image_image_tags", "images"
   add_foreign_key "movie_categories", "categories"
   add_foreign_key "movie_categories", "movies"
+  add_foreign_key "movie_movie_tags", "movie_tags"
+  add_foreign_key "movie_movie_tags", "movies"
 end

@@ -1,6 +1,8 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show]
+  before_action :set_tag, only: [:show, :tag]
   before_action :authenticate_user!, except: [:show]
+  
 
   def index
     image_ids = ImageCategory.where(category_id: params[:format].to_i).pluck(:image_id)
@@ -12,7 +14,8 @@ class ImagesController < ApplicationController
   end
 
   def tag
-
+    @tag = ImageTag.find(params[:tag_id])
+    @images = Image.where(id: ImageImageTag.where(image_tag_id: @tag.id).pluck(:image_id))
   end
 
   def download
@@ -27,4 +30,9 @@ class ImagesController < ApplicationController
   def set_image
     @image = Image.find(params[:id])
   end
+
+  def set_tag
+    @tags = ImageTag.all
+  end
+
 end

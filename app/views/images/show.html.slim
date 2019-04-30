@@ -1,6 +1,8 @@
 = render 'layouts/header'
 h1 イメージshow
 = image_tag(@image.image.url)
+- @image.image_tags.each do |tag|
+  a href="/images/tag?tag_id=#{tag.id}" #{tag.name}
 - if user_signed_in?
   h2 画像サイズ
     #{@image.image.height} × #{@image.image.width}
