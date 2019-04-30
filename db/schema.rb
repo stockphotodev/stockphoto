@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_233517) do
+ActiveRecord::Schema.define(version: 2019_04_30_050405) do
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2019_04_29_233517) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "download_limits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "limit_of_image", default: 0, null: false
+    t.integer "limit_of_illustration", default: 0, null: false
+    t.integer "limit_of_movie", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_download_limits_on_user_id"
   end
 
   create_table "illustration_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -144,7 +154,9 @@ ActiveRecord::Schema.define(version: 2019_04_29_233517) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin_flg"
+    t.bigint "plan_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["plan_id"], name: "index_users_on_plan_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

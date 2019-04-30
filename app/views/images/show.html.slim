@@ -7,7 +7,12 @@ h1 イメージshow
   h2 画像サイズ
     #{@image.image.height} × #{@image.image.width}
   a href="#" ！利用可能な用途と禁止事項
-  = link_to 'ダウンロード', image_download_path(@image), class: 'btn btn-info', data: { turbolinks: false }, method: :post
+
+  - if current_user.download_limit.limit_of_image > 0
+    = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_image}枚)", image_download_path(@image), id: 'imagedl', class: 'btn btn-info', data: { turbolinks: false, limit: current_user.download_limit.limit_of_image}, method: :post
+  - else
+    = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_image}枚)", image_download_path(@image), disabled: true, class: 'btn btn-info', data: { turbolinks: false }, method: :post
+
 - else
   h2 ログイン
   button.btn.btn-primary data-target=".bd-example-modal-lg" data-toggle="modal" type="button"  Large modal
@@ -30,3 +35,12 @@ h1 イメージshow
           .actions
             = f.submit "ログイン"
 = render 'layouts/header'
+
+javascript:
+  $('#imagedl').click( function () {
+    var imagedl = document.getElementById('imagedl')
+    var limit = imagedl.getAttribute('data-limit')
+    limit = limit -1
+    imagedl.setAttribute('data-limit', limit)
+    imagedl.value = `ダウンロード(残り${limit}枚)`;
+  });

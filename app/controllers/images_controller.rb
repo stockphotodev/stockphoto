@@ -23,6 +23,10 @@ class ImagesController < ApplicationController
     filepath = @image.image.current_path
     data = open(@image.image.url)
     send_data(data.read, filename: @image.image_identifier, type: @image.image.content_type)
+    user = current_user
+    @limit = user.download_limit
+    @limit.limit_of_image -= 1
+    @limit.save
   end
 
   private
