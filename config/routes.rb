@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   end
   resources :illustrations do
     post 'download' => 'illustrations#download'
-    post 'tag' => 'illustrations#tag'
+    get 'tag' => 'illustrations#tag', on: :collection
   end
   resources :movies do
     post 'download' => 'movies#download'
-    post 'tag' => 'movies#tag'
+    get 'tag' => 'movies#tag', on: :collection
   end
   resources :test
 

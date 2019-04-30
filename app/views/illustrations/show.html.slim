@@ -1,6 +1,9 @@
 = render 'layouts/header'
 h1 イラスト詳細
 = image_tag(@illustration.illustration.url)
+- @illustration.illustration_tags.each do |tag|
+  a href="/illustrations/tag?tag_id=#{tag.id}" #{tag.name}
+
 - if user_signed_in?
   h2 イラストサイズ
     #{@illustration.illustration.height} × #{@illustration.illustration.width}

@@ -1,10 +1,17 @@
 class IllustrationsController < ApplicationController
   before_action :set_illustration, only: [:show]
+  before_action :set_tag, only: [:show, :tag]
   before_action :authenticate_user!, except: [:show]
 
   def index
     illustration_ids = IllustrationCategory.where(category_id: params[:format].to_i).pluck(:illustration_id)
     @illustrations = Illustration.where(id: illustration_ids)
+  end
+
+
+  def tag
+    @tag = IllustrationTag.find(params[:tag_id])
+    @illustrations = Illustration.where(id: IllustrationIllustrationTag.where(illustration_tag_id: @tag.id).pluck(:illustration_id))
   end
 
   def download
@@ -19,4 +26,9 @@ class IllustrationsController < ApplicationController
   def set_illustration
     @illustration = Illustration.find(params[:id])
   end
+
+  def set_tag
+    @tags = ImageTag.all
+  end
+
 end

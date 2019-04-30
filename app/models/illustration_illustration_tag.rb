@@ -1,4 +1,4 @@
 class IllustrationIllustrationTag < ApplicationRecord
   belongs_to :illustration
-  belongs_to :illustratuon_tag
+  belongs_to :illustration_tag
 end

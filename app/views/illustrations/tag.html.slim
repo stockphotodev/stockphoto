@@ -1,0 +1,10 @@
+h1 イラストタグ
+h2 タグ一覧
+- @tags.each do |tag|
+  a.btn.btn-primary href="/illustrations/tag?tag_id=#{tag.id}" role="button" style="margin:2px;" #{tag.name}
+
+h2 類似イラスト一覧
+- @illustrations.each do |illustration|
+  = link_to illustration_path(illustration.id)
+    = image_tag(illustration.illustration.thumb.url)
+  p = illustration.name
