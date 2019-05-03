@@ -47,6 +47,11 @@ MovieCategory.create(name: '動画カテゴリ1')
 MovieCategory.create(name: '動画カテゴリ2')
 MovieCategory.create(name: '動画カテゴリ3')
 
+# image_model
+ImageModel.create(name: 'イメージモデル1')
+ImageModel.create(name: 'イメージモデル2')
+ImageModel.create(name: 'イメージモデル3')
+
 # user
 User.create(email: 'user1@example.com', password: 'password', admin_flg: 1, plan_id: 1)
 User.create(email: 'user2@example.com', password: 'password', admin_flg: 0, plan_id: 2)

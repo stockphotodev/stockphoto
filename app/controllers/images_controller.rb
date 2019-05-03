@@ -43,4 +43,9 @@ class ImagesController < ApplicationController
   def set_similar_image
     @similar_image = Image.where(image_category_id: @image.image_category_id).where.not(id: @image.id)
   end
+
+  def set_similar_image
+    @images_of_same_model = Image.where(image_category_id: @image.image_model_id).where.not(id: @image.id)
+  end
+
 end

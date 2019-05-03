@@ -5,5 +5,5 @@ class Image < ApplicationRecord
   has_many :image_tags, through: :image_image_tags
 
   belongs_to :image_category
-
+  belongs_to :image_model
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_043605) do
+ActiveRecord::Schema.define(version: 2019_05_03_081106) do
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -86,6 +86,12 @@ ActiveRecord::Schema.define(version: 2019_05_03_043605) do
     t.index ["image_tag_id"], name: "index_image_image_tags_on_image_tag_id"
   end
 
+  create_table "image_models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "image_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -98,7 +104,9 @@ ActiveRecord::Schema.define(version: 2019_05_03_043605) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "image_category_id"
+    t.bigint "image_model_id"
     t.index ["image_category_id"], name: "index_images_on_image_category_id"
+    t.index ["image_model_id"], name: "index_images_on_image_model_id"
   end
 
   create_table "movie_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
