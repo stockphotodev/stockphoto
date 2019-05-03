@@ -1,6 +1,7 @@
 class IllustrationsController < ApplicationController
   before_action :set_illustration, only: [:show]
   before_action :set_similar_illustration, only: [:show]
+  before_action :set_same_model_illustration, only: [:show]
   before_action :set_tag, only: [:show, :tag]
   before_action :authenticate_user!, except: [:show]
 
@@ -38,6 +39,10 @@ class IllustrationsController < ApplicationController
 
   def set_similar_illustration
     @similar_illustration = Illustration.where(illustration_category_id: @illustration.illustration_category_id).where.not(id: @illustration.id)
+  end
+
+  def set_same_model_illustration
+    @illustrations_of_same_model = Illustration.where(illustration_model_id: @illustration.illustration_model_id).where.not(id: @illustration.id)
   end
 
 end
