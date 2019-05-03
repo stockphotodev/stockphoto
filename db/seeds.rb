@@ -7,10 +7,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# user
-User.create(email: 'user1@example.com', password: 'password', admin_flg: 1)
-User.create(email: 'user2@example.com', password: 'password', admin_flg: 0)
-
 # plan
 Plan.create(name: 'ライト', period: 0, limit_of_image: 10, limit_of_illustration: 10, limit_of_movie: 5, price: 10000)
 Plan.create(name: 'ライト', period: 1, limit_of_image: 10, limit_of_illustration: 10, limit_of_movie: 5, price: 6000)
@@ -35,3 +31,13 @@ IllustrationTag.create(name: 'イラストタグ3')
 MovieTag.create(name: '動画タグ1')
 MovieTag.create(name: '動画タグ2')
 MovieTag.create(name: '動画タグ3')
+
+# image_category
+ImageCategory.create(name: 'イメージカテゴリ1')
+ImageCategory.create(name: 'イメージカテゴリ2')
+ImageCategory.create(name: 'イメージカテゴリ3')
+
+
+# user
+User.create(email: 'user1@example.com', password: 'password', admin_flg: 1, plan_id: 1)
+User.create(email: 'user2@example.com', password: 'password', admin_flg: 0, plan_id: 2)
