@@ -53,9 +53,9 @@ ImageModel.create(name: 'イメージモデル2')
 ImageModel.create(name: 'イメージモデル3')
 
 # illustration_model
-IllustratiinModel.create(name: 'イラストモデル1')
-IllustratiinModel.create(name: 'イラストモデル2')
-IllustratiinModel.create(name: 'イラストモデル3')
+IllustrationModel.create(name: 'イラストモデル1')
+IllustrationModel.create(name: 'イラストモデル2')
+IllustrationModel.create(name: 'イラストモデル3')
 
 # movie_model
 MovieModel.create(name: '動画モデル1')
