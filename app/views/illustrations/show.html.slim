@@ -30,4 +30,13 @@ h1 イラスト詳細
             = f.label :remember_me
           .actions
             = f.submit "ログイン"
+
+h1 類似イメージ
+- if @similar_illustration.present?
+  - @similar_illustration.each do |similar_illustration|
+    = image_tag(similar_illustration.illustration.url)
+    p = similar_illustration.name
+- else
+  p 類似の画像はありません
+
 = render 'layouts/header'

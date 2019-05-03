@@ -1,5 +1,6 @@
 class IllustrationsController < ApplicationController
   before_action :set_illustration, only: [:show]
+  before_action :set_similar_illustration, only: [:show]
   before_action :set_tag, only: [:show, :tag]
   before_action :authenticate_user!, except: [:show]
 
@@ -29,6 +30,10 @@ class IllustrationsController < ApplicationController
 
   def set_tag
     @tags = ImageTag.all
+  end
+
+  def set_similar_illustration
+    @similar_illustration = Illustration.where(illustration_category_id: @illustration.illustration_category_id).where.not(id: @illustration.id)
   end
 
 end
