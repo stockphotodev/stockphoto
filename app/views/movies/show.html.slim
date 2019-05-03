@@ -30,4 +30,15 @@ h1 動画show
             = f.label :remember_me
           .actions
             = f.submit "ログイン"
+
+h1 類似動画
+- if @similar_movie.present?
+  - @similar_movie.each do |similar_movie|
+    = image_tag(similar_movie.movie.screenshot.url)
+    p = similar_movie.name
+- else
+  p 類似の画像はありません
+
+h1 同じモデルの動画
+
 = render 'layouts/header'

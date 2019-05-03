@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show]
+  before_action :set_similar_movie, only: [:show]
   before_action :set_tag, only: [:show, :tag]
   before_action :authenticate_user!, except: [:show]
 
@@ -32,5 +33,9 @@ class MoviesController < ApplicationController
 
   def set_tag
     @tags = MovieTag.all
+  end
+
+  def set_similar_movie
+    @similar_movie = Movie.where(movie_category_id: @movie.movie_category_id).where.not(id: @movie.id)
   end
 end
