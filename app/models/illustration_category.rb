@@ -1,4 +1,4 @@
 class IllustrationCategory < ApplicationRecord
-  belongs_to :illustration
-  belongs_to :category
+
+  has_one :illustration
 end

@@ -37,6 +37,15 @@ ImageCategory.create(name: 'イメージカテゴリ1')
 ImageCategory.create(name: 'イメージカテゴリ2')
 ImageCategory.create(name: 'イメージカテゴリ3')
 
+# illustration_category
+IllustrationCategory.create(name: 'イラストカテゴリ1')
+IllustrationCategory.create(name: 'イラストカテゴリ2')
+IllustrationCategory.create(name: 'イラストカテゴリ3')
+
+# movie_category
+MovieCategory.create(name: '動画カテゴリ1')
+MovieCategory.create(name: '動画カテゴリ2')
+MovieCategory.create(name: '動画カテゴリ3')
 
 # user
 User.create(email: 'user1@example.com', password: 'password', admin_flg: 1, plan_id: 1)

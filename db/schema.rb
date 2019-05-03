@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_032931) do
+ActiveRecord::Schema.define(version: 2019_05_03_043605) do
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -41,12 +41,9 @@ ActiveRecord::Schema.define(version: 2019_05_03_032931) do
   end
 
   create_table "illustration_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "illustration_id"
-    t.bigint "category_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_illustration_categories_on_category_id"
-    t.index ["illustration_id"], name: "index_illustration_categories_on_illustration_id"
   end
 
   create_table "illustration_illustration_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,6 +67,8 @@ ActiveRecord::Schema.define(version: 2019_05_03_032931) do
     t.string "illustration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "illustration_category_id"
+    t.index ["illustration_category_id"], name: "index_illustrations_on_illustration_category_id"
   end
 
   create_table "image_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,12 +102,9 @@ ActiveRecord::Schema.define(version: 2019_05_03_032931) do
   end
 
   create_table "movie_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "movie_id"
-    t.bigint "category_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_movie_categories_on_category_id"
-    t.index ["movie_id"], name: "index_movie_categories_on_movie_id"
   end
 
   create_table "movie_movie_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -131,6 +127,8 @@ ActiveRecord::Schema.define(version: 2019_05_03_032931) do
     t.string "movie"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "movie_category_id"
+    t.index ["movie_category_id"], name: "index_movies_on_movie_category_id"
   end
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -159,14 +157,10 @@ ActiveRecord::Schema.define(version: 2019_05_03_032931) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "illustration_categories", "categories"
-  add_foreign_key "illustration_categories", "illustrations"
   add_foreign_key "illustration_illustration_tags", "illustration_tags"
   add_foreign_key "illustration_illustration_tags", "illustrations"
   add_foreign_key "image_image_tags", "image_tags"
   add_foreign_key "image_image_tags", "images"
-  add_foreign_key "movie_categories", "categories"
-  add_foreign_key "movie_categories", "movies"
   add_foreign_key "movie_movie_tags", "movie_tags"
   add_foreign_key "movie_movie_tags", "movies"
 end
