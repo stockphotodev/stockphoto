@@ -20,6 +20,10 @@ class IllustrationsController < ApplicationController
     filepath = @illustration.illustration.current_path
     data = open(@illustration.illustration.url)
     send_data(data.read, filename: @illustration.illustration_identifier, type: @illustration.illustration.content_type)
+    user = current_user
+    @limit = user.download_limit
+    @limit.limit_of_illustration -= 1
+    @limit.save
   end
 
   private

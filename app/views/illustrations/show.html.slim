@@ -9,7 +9,13 @@ p = @illustration.name
   h2 イラストサイズ
     #{@illustration.illustration.height} × #{@illustration.illustration.width}
   a href="#" ！利用可能な用途と禁止事項
-  = link_to 'ダウンロード', illustration_download_path(@illustration), class: 'btn btn-info', data: { turbolinks: false }, method: :post
+
+  - if current_user.download_limit.limit_of_illustration > 0
+    = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_illustration}枚)", illustration_download_path(@illustration), id: 'illustrationdl', class: 'btn btn-info', data: { turbolinks: false, limit: current_user.download_limit.limit_of_illustration}, method: :post
+  - else
+    = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_illustration}枚)", illustration_download_path(@llustration), disabled: true, class: 'btn btn-info', data: { turbolinks: false }, method: :post
+
+
 - else
   h2 ログイン
   button.btn.btn-primary data-target=".bd-example-modal-lg" data-toggle="modal" type="button"  Large modal
@@ -41,3 +47,12 @@ h1 類似イメージ
   p 類似の画像はありません
 
 = render 'layouts/header'
+
+javascript:
+  $('#illustrationdl').click( function () {
+    var illustrationdl = document.getElementById('illustrationdl')
+    var limit = illustrationdl.getAttribute('data-limit')
+    limit = limit -1
+    illustrationdl.setAttribute('data-limit', limit)
+    illustrationdl.value = `ダウンロード(残り${limit}枚)`;
+  });
