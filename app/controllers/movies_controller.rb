@@ -23,6 +23,11 @@ class MoviesController < ApplicationController
     filepath = @movie.movie.current_path
     data = open(@movie.movie.url)
     send_data(data.read, filename: @movie.movie_identifier, type: @movie.movie.content_type)
+    user = current_user
+    @limit = user.download_limit
+    @limit.limit_of_movie -= 1
+    @limit.save
+
   end
 
   private

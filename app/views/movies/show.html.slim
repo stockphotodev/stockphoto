@@ -6,10 +6,12 @@ p = @movie.name
   a href="/movies/tag?tag_id=#{tag.id}" #{tag.name}
 
 - if user_signed_in?
-  / h2 画像サイズ
-  /   #{@image.image.height} × #{@image.image.width}
-  a href="#" ！利用可能な用途と禁止事項
-  = link_to 'ダウンロード', movie_download_path(@movie), class: 'btn btn-info', data: { turbolinks: false }, method: :post
+
+  - if current_user.download_limit.limit_of_movie > 0
+    = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_movie}枚)", movie_download_path(@movie), id: 'moviedl', class: 'btn btn-info', data: { turbolinks: false, limit: current_user.download_limit.limit_of_movie}, method: :post
+  - else
+    = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_movie}枚)", movie_download_path(@movie), disabled: true, class: 'btn btn-info', data: { turbolinks: false }, method: :post
+
 - else
   h2 ログイン
   button.btn.btn-primary data-target=".bd-example-modal-lg" data-toggle="modal" type="button"  Large modal
@@ -43,3 +45,12 @@ h1 類似動画
 h1 同じモデルの動画
 
 = render 'layouts/header'
+
+javascript:
+  $('#moviedl').click( function () {
+    var moviedl = document.getElementById('moviedl')
+    var limit = moviedl.getAttribute('data-limit')
+    limit = limit -1
+    moviedl.setAttribute('data-limit', limit)
+    moviedl.value = `ダウンロード(残り${limit}枚)`;
+  });
