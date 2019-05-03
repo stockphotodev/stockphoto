@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_03_081106) do
+ActiveRecord::Schema.define(version: 2019_05_03_083916) do
 
   create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(version: 2019_05_03_081106) do
     t.index ["illustration_tag_id"], name: "index_illustration_illustration_tags_on_illustration_tag_id"
   end
 
+  create_table "illustration_models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "illustration_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -68,7 +74,9 @@ ActiveRecord::Schema.define(version: 2019_05_03_081106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "illustration_category_id"
+    t.bigint "illustration_model_id"
     t.index ["illustration_category_id"], name: "index_illustrations_on_illustration_category_id"
+    t.index ["illustration_model_id"], name: "index_illustrations_on_illustration_model_id"
   end
 
   create_table "image_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -115,6 +123,12 @@ ActiveRecord::Schema.define(version: 2019_05_03_081106) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "movie_models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "movie_movie_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "movie_id"
     t.bigint "movie_tag_id"
@@ -136,7 +150,9 @@ ActiveRecord::Schema.define(version: 2019_05_03_081106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "movie_category_id"
+    t.bigint "movie_model_id"
     t.index ["movie_category_id"], name: "index_movies_on_movie_category_id"
+    t.index ["movie_model_id"], name: "index_movies_on_movie_model_id"
   end
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

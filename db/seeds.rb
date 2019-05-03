@@ -52,6 +52,16 @@ ImageModel.create(name: 'イメージモデル1')
 ImageModel.create(name: 'イメージモデル2')
 ImageModel.create(name: 'イメージモデル3')
 
+# illustration_model
+IllustratiinModel.create(name: 'イラストモデル1')
+IllustratiinModel.create(name: 'イラストモデル2')
+IllustratiinModel.create(name: 'イラストモデル3')
+
+# movie_model
+MovieModel.create(name: '動画モデル1')
+MovieModel.create(name: '動画モデル2')
+MovieModel.create(name: '動画モデル3')
+
 # user
 User.create(email: 'user1@example.com', password: 'password', admin_flg: 1, plan_id: 1)
 User.create(email: 'user2@example.com', password: 'password', admin_flg: 0, plan_id: 2)

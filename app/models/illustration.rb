@@ -5,4 +5,5 @@ class Illustration < ApplicationRecord
   has_many :illustration_tags, through: :illustration_illustration_tags
 
   belongs_to :illustration_category
+  belongs_to :illustration_model
 end
