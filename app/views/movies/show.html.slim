@@ -1,6 +1,7 @@
 = render 'layouts/header'
 h1 動画show
 = image_tag(@movie.movie.screenshot.url)
+p = @movie.name
 - @movie.movie_tags.each do |tag|
   a href="/movies/tag?tag_id=#{tag.id}" #{tag.name}
 

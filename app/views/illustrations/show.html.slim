@@ -1,6 +1,7 @@
 = render 'layouts/header'
 h1 イラスト詳細
 = image_tag(@illustration.illustration.url)
+p = @illustration.name
 - @illustration.illustration_tags.each do |tag|
   a href="/illustrations/tag?tag_id=#{tag.id}" #{tag.name}
 
