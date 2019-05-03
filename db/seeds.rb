@@ -65,3 +65,6 @@ MovieModel.create(name: '動画モデル3')
 # user
 User.create(email: 'user1@example.com', password: 'password', admin_flg: 1, plan_id: 1)
 User.create(email: 'user2@example.com', password: 'password', admin_flg: 0, plan_id: 2)
+
+# download_limit
+DownloadLimit.create(limit_of_image: 10, limit_of_illustration: 10, limit_of_movie: 5, user_id:1)
