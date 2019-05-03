@@ -37,6 +37,12 @@ p = @image.name
             = f.submit "ログイン"
 
 h1 類似画像
+- if @similar_image.present?
+  - @similar_image.each do |similar_image|
+    = image_tag(similar_image.image.url)
+    p = similar_image.name
+- else
+  p 類似の画像はありません
 
 h1 同じモデルの画像
 = render 'layouts/header'

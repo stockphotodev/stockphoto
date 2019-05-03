@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show]
+  before_action :set_similar_image, only: [:show]
   before_action :set_tag, only: [:show, :tag]
   before_action :authenticate_user!, except: [:show]
   
@@ -39,4 +40,7 @@ class ImagesController < ApplicationController
     @tags = ImageTag.all
   end
 
+  def set_similar_image
+    @similar_image = Image.where(image_category_id: @image.image_category_id).where.not(id: @image.image_category_id)
+  end
 end
