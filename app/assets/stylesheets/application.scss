@@ -41,13 +41,24 @@ footer {
 // TOPの画像表示
 .top_new_arrivals {
     text-align: center;
-    margin-left: 15%;
-    margin-right: 15%;
-
-    img {
-        margin: 2%;
-        max-width: 30%;
-        height: 200px;
+    margin: 0 30px;
+    // margin-left: 1%;
+    // margin-right: 1%;
+    background: #F4F4F4;
+    .contents {
+        // float: left;
+        display:inline-block;
+        text-align:	center;
+        margin: 0px 7px 7px 0px;
+        // height: 220px;
+        // width: 300px;
+        img {
+            max-height: 200px;
+            max-width: 300px;
+        }
+        p {
+            height: 20px
+        }
     }
 }
 
