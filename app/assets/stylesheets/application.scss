@@ -153,3 +153,20 @@ table td.icon.crab{
         display: inline-table;
     }
 }
+
+// tag一覧ページ
+.tag_title{
+    margin-top: 30px;
+}
+
+.tag_list{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.image_list{
+    .title{
+        text-align: left;
+        border-bottom: solid 3px black;
+    }
+}
