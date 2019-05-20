@@ -1,26 +1,27 @@
 = render 'layouts/header'
-form.form-inline.justify-content-center.top_form
-  input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" /
-  button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
-.top_new_arrivals
-  h1 新着画像
-  - @images.each do |image|
-    .contents
-      = link_to image_path(image.id)
-        = image_tag(image.image.thumb.url)
-      p = image.name
-.top_new_arrivals
-  h1 新着イラスト
-  - @illustrations.each do |illustration|
-    .contents
-      = link_to illustration_path(illustration.id)
-        = image_tag(illustration.illustration.to_s)
-        p =	illustration.name
-.top_new_arrivals
-  h1 新着動画
-  - @movies.each do |movie|
-    .contents
-      = link_to movie_path(movie.id)
-        = image_tag(movie.movie.screenshot.url)
-        p =	movie.name
+.container
+  form.form-inline.justify-content-center.top_form
+    input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" /
+    button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
+  .top_new_arrivals
+    h1 新着画像
+    - @images.each do |image|
+      .contents
+        = link_to image_path(image.id)
+          = image_tag(image.image.thumb.url)
+        p = image.name
+  .top_new_arrivals
+    h1 新着イラスト
+    - @illustrations.each do |illustration|
+      .contents
+        = link_to illustration_path(illustration.id)
+          = image_tag(illustration.illustration.to_s)
+          p =	illustration.name
+  .top_new_arrivals
+    h1 新着動画
+    - @movies.each do |movie|
+      .contents
+        = link_to movie_path(movie.id)
+          = image_tag(movie.movie.screenshot.url)
+          p =	movie.name
 = render 'layouts/footer'
