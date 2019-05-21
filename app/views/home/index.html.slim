@@ -9,7 +9,7 @@
       .contents
         = link_to image_path(image.id)
           = image_tag(image.image.thumb.url)
-        p = image.name
+          p = image.name
   .top_new_arrivals
     h1 新着イラスト
     - @illustrations.each do |illustration|
