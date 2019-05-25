@@ -1,6 +1,22 @@
-h1 イラスト一覧
-- if @illustrations.present?
-  - @illustrations.each do |illustration|
-    = image_tag(illustration.illustration.url)
-- else
-  h2 該当の画像はありません
+= render 'layouts/header'
+
+.container
+  .tag_title
+    h2 カテゴリから選ぶ：#{@illustration_category.name}
+  .tag_list
+    - @illustration_categories.each do |illustration_category|
+      a.btn.btn-primary href="/illustrations.#{illustration_category.id}" role="button" style="margin:2px;" #{illustration_category.name}
+
+  .image_list
+    .title
+      h2 全てのイラスト
+    - if @illustrations.present?
+      - @illustrations.each do |illustration|
+        = link_to illustration_path(illustration.id)
+          .contents
+            = image_tag(illustration.illustration.url)
+            p = illustration.name
+    - else
+      h2 該当の画像はありません
+
+= render 'layouts/footer'

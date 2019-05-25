@@ -1,5 +1,6 @@
 class IllustrationsController < ApplicationController
   before_action :set_illustration, only: [:show]
+  before_action :set_category, only: [:index]
   before_action :set_similar_illustration, only: [:show]
   before_action :set_same_model_illustration, only: [:show]
   before_action :set_tag, only: [:show, :tag]
@@ -34,6 +35,10 @@ class IllustrationsController < ApplicationController
 
   def set_tag
     @tags = ImageTag.all
+  end
+
+  def set_category
+    @illustration_category = IllustrationCategory.find(params[:format])
   end
 
   def set_similar_illustration
