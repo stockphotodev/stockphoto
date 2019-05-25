@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show]
+  before_action :set_category, only: [:index]
   before_action :set_similar_movie, only: [:show]
   before_action :set_same_model_movie, only: [:show]
   before_action :set_tag, only: [:show, :tag]
@@ -38,6 +39,10 @@ class MoviesController < ApplicationController
 
   def set_tag
     @tags = MovieTag.all
+  end
+
+  def set_category
+    @movie_category = MovieCategory.find(params[:format])
   end
 
   def set_similar_movie

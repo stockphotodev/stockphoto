@@ -1,6 +1,22 @@
-h1 動画一覧
-- if @movies.present?
-  - @movies.each do |movie|
-    = image_tag(movie.movie.screenshot.url)
-- else
-  h2 該当の画像はありません
+= render 'layouts/header'
+
+.container
+  .tag_title
+    h2 カテゴリから選ぶ：#{@movie_category.name}
+  .tag_list
+    - @movie_categories.each do |movie_category|
+      a.btn.btn-primary href="/movies.#{movie_category.id}" role="button" style="margin:2px;" #{movie_category.name}
+
+  .image_list
+    .title
+      h2 全ての動画
+    - if @movies.present?
+      - @movies.each do |movie|
+        = link_to movie_path(movie.id)
+          .contents
+            = image_tag(movie.movie.screenshot.url)
+            p = movie.name
+    - else
+      h2 該当の動画はありません
+
+= render 'layouts/footer'
