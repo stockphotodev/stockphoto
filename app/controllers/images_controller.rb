@@ -1,4 +1,4 @@
-class ImagesController < ApplicationControllerxo
+class ImagesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :tag]
   before_action :set_image, only: [:show]
   before_action :set_category, only: [:index]
