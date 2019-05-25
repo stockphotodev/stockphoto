@@ -26,7 +26,9 @@ class ApplicationController < ActionController::Base
     end
 
     def set_category
-      @categories = Category.all
+      @image_categories = ImageCategory.all
+      @illustration_categories = IllustrationCategory.all
+      @movie_categories = MovieCategory.all
     end
 
     def set_plans

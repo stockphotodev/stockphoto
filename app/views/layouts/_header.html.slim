@@ -9,14 +9,14 @@ header
         a.nav-link.dropdown-toggle[data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="header-hover"]
           | 画像
         .dropdown-menu
-          - @categories.each do |category|
+          - @image_categories.each do |category|
             a.dropdown-item
               = link_to category.name, images_path(category.id)
       li.nav-item.dropdown
         a.nav-link.dropdown-toggle[data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"]
           | イラスト
         .dropdown-menu
-          - @categories.each do |category|
+          - @illustration_categories.each do |category|
             a.dropdown-item
               = link_to category.name, illustrations_path(category.id)
 
@@ -24,7 +24,7 @@ header
         a.nav-link.dropdown-toggle[data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"]
           | 動画
         .dropdown-menu
-          - @categories.each do |category|
+          - @movie_categories.each do |category|
             a.dropdown-item
               = link_to category.name, movies_path(category.id)
     ul.nav.ml-md-auto

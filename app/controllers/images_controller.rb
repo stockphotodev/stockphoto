@@ -7,8 +7,7 @@ class ImagesController < ApplicationController
   
 
   def index
-    image_ids = ImageCategory.where(category_id: params[:format].to_i).pluck(:image_id)
-    @images = Image.where(id: image_ids)
+    @images = Image.where(image_category_id: params[:format].to_i)
   end
 
   def show

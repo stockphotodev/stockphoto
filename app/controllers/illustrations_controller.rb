@@ -6,8 +6,7 @@ class IllustrationsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    illustration_ids = IllustrationCategory.where(category_id: params[:format].to_i).pluck(:illustration_id)
-    @illustrations = Illustration.where(id: illustration_ids)
+    @illustrations = Illustration.where(illustration_category_id: params[:format].to_i)
   end
 
 

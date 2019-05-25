@@ -6,8 +6,7 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    movie_ids = MovieCategory.where(category_id: params[:format].to_i).pluck(:movie_id)
-    @movies = Movie.where(id: movie_ids)
+    @movies = Movie.where(movie_category_id: params[:format].to_i)
   end
 
   def show
