@@ -1,6 +1,23 @@
-h1 画像一覧
-- if @images.present?
-  - @images.each do |image|
-    = image_tag(image.image.url)
-- else
-  h2 該当の画像はありません
+= render 'layouts/header'
+
+.container
+  .tag_title
+    h2 カテゴリから選ぶ：#{@image_category.name}
+  .tag_list
+    - @image_categories.each do |image_category|
+      a.btn.btn-primary href="/images.#{image_category.id}" role="button" style="margin:2px;" #{image_category.name}
+
+  .image_list
+    .title
+      h2 全ての画像
+    - if @images.present?
+      - @images.each do |image|
+        = link_to image_path(image.id)
+          .contents
+            = image_tag(image.image.url)
+            p = image.name
+
+    - else
+      h2 該当の画像はありません
+
+= render 'layouts/footer'

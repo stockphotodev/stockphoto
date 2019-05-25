@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_category
+  before_action :set_categories
   before_action :set_plans
   before_action :store_user_location!, if: :storable_location?
   before_action :authenticate_user!
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       stored_location_for(resource_or_scope) || super
     end
 
-    def set_category
+    def set_categories
       @image_categories = ImageCategory.all
       @illustration_categories = IllustrationCategory.all
       @movie_categories = MovieCategory.all

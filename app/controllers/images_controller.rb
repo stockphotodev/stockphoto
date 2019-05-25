@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show]
+  before_action :set_category, only: [:index]
   before_action :set_similar_image, only: [:show]
   before_action :set_same_model_image, only: [:show]
   before_action :set_tag, only: [:show, :tag]
@@ -38,6 +39,10 @@ class ImagesController < ApplicationController
 
   def set_tag
     @tags = ImageTag.all
+  end
+
+  def set_category
+    @image_category = ImageCategory.find(params[:format])
   end
 
   def set_similar_image
