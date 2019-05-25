@@ -1,17 +1,23 @@
-h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "ログイン"
-= render "devise/shared/links"
+= render 'layouts/header'
+
+.login
+  .login-triangle
+  h2.login-header Log in
+  .login-container
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .wrap
+       .field
+         = f.email_field :email, placeholder: "メールアドレスまたはユーザ名", style: 'width:100%'
+       br
+       .field
+         = f.password_field :password, autocomplete: "off",	placeholder: "パスワード", style: 'width:100%'
+       br/
+       div
+         - if devise_mapping.rememberable?
+           .field
+             a
+               = link_to "パスワードをお忘れですか？", "#", id: "logInToPasswordReminder", class: "btn", "data-toggle" => "modal", "data-target" => "#passwordReminderModal"
+       div
+         = f.submit "ログイン", class: 'btn btn-primary', style: 'width:100%'
+
+= render 'layouts/footer'
