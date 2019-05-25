@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   before_action :set_similar_movie, only: [:show]
   before_action :set_same_model_movie, only: [:show]
   before_action :set_tag, only: [:show, :tag]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:index, :show, :tag]
 
   def index
     @movies = Movie.where(movie_category_id: params[:format].to_i)

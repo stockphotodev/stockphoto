@@ -1,10 +1,10 @@
-class ImagesController < ApplicationController
+class ImagesController < ApplicationControllerxo
+  before_action :authenticate_user!, except: [:index, :show, :tag]
   before_action :set_image, only: [:show]
   before_action :set_category, only: [:index]
   before_action :set_similar_image, only: [:show]
   before_action :set_same_model_image, only: [:show]
   before_action :set_tag, only: [:show, :tag]
-  before_action :authenticate_user!, except: [:show]
   
 
   def index
