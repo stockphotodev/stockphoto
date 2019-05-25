@@ -15,26 +15,28 @@
           = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_movie}枚)", movie_download_path(@movie), disabled: true, class: 'btn btn-info', data: { turbolinks: false }, method: :post
 
       - else
-        h2 ログイン
-        button.btn.btn-primary data-target=".bd-example-modal-lg" data-toggle="modal" type="button"  Large modal
-        .modal.fade.bd-example-modal-lg aria-hidden="true" aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1"
-          .modal-dialog.modal-lg
-            .modal-content
-              = form_for(resource_name, as: resource_name, url: session_path(resource)) do |f|
-                .field
-                  = f.label :email
-                  br/
-                  = f.email_field :email, autofocus: true, autocomplete: "email"
-                .field
-                  = f.label :password
-                  br/
-                  = f.password_field :password, autocomplete: "current-password"
-                - if devise_mapping.rememberable?
-                  .field
-                    = f.check_box :remember_me
-                  = f.label :remember_me
-                .actions
-                  = f.submit "ログイン"
+        a.btn.btn-primary href="/users/sign_in"	ログイン
+
+        / h2 ログイン
+        / button.btn.btn-primary data-target=".bd-example-modal-lg" data-toggle="modal" type="button"  Large modal
+        / .modal.fade.bd-example-modal-lg aria-hidden="true" aria-labelledby="myLargeModalLabel" role="dialog" tabindex="-1"
+        /   .modal-dialog.modal-lg
+        /     .modal-content
+        /       = form_for(resource_name, as: resource_name, url: session_path(resource)) do |f|
+        /         .field
+        /           = f.label :email
+        /           br/
+        /           = f.email_field :email, autofocus: true, autocomplete: "email"
+        /         .field
+        /           = f.label :password
+        /           br/
+        /           = f.password_field :password, autocomplete: "current-password"
+        /         - if devise_mapping.rememberable?
+        /           .field
+        /             = f.check_box :remember_me
+        /           = f.label :remember_me
+        /         .actions
+        /           = f.submit "ログイン"
 
   .detail
     h1 類似動画
