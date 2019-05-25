@@ -217,8 +217,49 @@ table td.icon.crab{
 }
 
 .image_list{
+
+    position: relative;
+    text-align:	center;
+    margin: 20px 7px 7px 0px;
+
     .title{
         text-align: left;
         border-bottom: solid 3px black;
+        margin-bottom: 20px;
     }
+
+    .contents{
+
+        height: 330px;
+        width: 330px;
+        border: solid #808000;
+        display: -webkit-inline-box;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: space-evenly;
+        position: relative;
+        text-align:	center;
+        margin: 0px 7px 7px 0px;
+        // height: 220px;
+        img {
+            max-height: 280px;
+            max-width: 280px;
+            position: absolute;
+            top: 5px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        p {
+            position: absolute;
+            height: 20px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+    }
+
 }

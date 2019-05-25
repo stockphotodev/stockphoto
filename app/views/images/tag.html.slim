@@ -12,7 +12,8 @@
       h2 全ての画像
     - @images.each do |image|
       = link_to image_path(image.id)
-        = image_tag(image.image.thumb.url)
-      p = image.name
+        .contents
+          = image_tag(image.image.thumb.url)
+          p = image.name
 
 = render 'layouts/footer'
