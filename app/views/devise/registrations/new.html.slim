@@ -1,0 +1,21 @@
+= render 'layouts/header'
+
+.login
+  .login-triangle
+  h2.login-header Sign Up
+  .login-container
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      .wrap
+        .field
+          = f.email_field :email, placeholder: "メールアドレスまたはユーザ名", style: 'width:100%'
+        br
+        .field
+          = f.password_field :password, autocomplete: "off",	placeholder: "パスワード", style: 'width:100%'
+        br
+        .field
+          = f.collection_select :plan_id, @plans, :id, :name, style: 'width:100%'
+        br
+        div
+          = f.submit "ログイン", class: 'btn btn-primary', style: 'width:100%'
+
+= render 'layouts/footer'

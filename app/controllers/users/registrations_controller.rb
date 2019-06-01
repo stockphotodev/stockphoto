@@ -1,8 +1,9 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
@@ -10,9 +11,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    plan = Plan.find(params[:user][:plan_id])
+    dl_limit = DownloadLimit.new
+    dl_limit.limit_of_image = plan.limit_of_image
+    dl_limit.limit_of_illustration = plan.limit_of_illustration
+    dl_limit.limit_of_movie = plan.limit_of_movie
+    dl_limit.user_id = @user.id
+
+    @user.download_limit = dl_limit
+  end
 
   # GET /resource/edit
   # def edit
@@ -41,14 +50,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    attr = [:email, :password, :password_confirmation, :plan_id]
+    devise_parameter_sanitizer.permit(:sign_up, keys: attr)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    attr = [:email, :password, :password_confirmation, :plan_id]
+    devise_parameter_sanitizer.permit(:account_update, keys: attr)
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

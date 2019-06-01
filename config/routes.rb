@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
-  devise_for :users
+  devise_for :users, controllers: {
+               registrations: 'users/registrations'
+             }
+
   resources :images do
     post 'download' => 'images#download'
     get 'tag' => 'images#tag', on: :collection
