@@ -2,7 +2,8 @@
 .container
   .detail
     .left_block
-      = image_tag(@movie.movie.screenshot.url)
+      / = image_tag(@movie.movie.screenshot.url)
+      = video_tag(@movie.movie.url, controls: true, width: 400, height: 300, controlslist: "nodownload")
       p = @movie.name
       - @movie.movie_tags.each do |tag|
         a.btn.btn-primary.btn-sm href="/movies/tag?tag_id=#{tag.id}" style="margin-right:2px;" #{tag.name}
