@@ -319,11 +319,13 @@ table td.icon.crab{
   font-size: 0.95em;
 }
 
+#user_plan_id, 
 .login input[type="email"],
 .login input[type="password"] {
   background: #fff;
   border-color: #bbb;
   color: #555;
+  width: 100%;
 }
 
 /* Text fields' focus effect */

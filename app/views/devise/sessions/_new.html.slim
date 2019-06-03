@@ -26,7 +26,8 @@
       .modal-body style="border-top:1px solid #e9ecef"
         div
           a アカウントをまだお持ちではありませんか？
-          button.btn.btn-success.mt10 id="logInToRegistration" style="width:100%;border-top:1px solid #e9ecef" data-target="#registrationModal" data-toggle="modal" アカウントを作成
+        div
+          a.btn.btn-success.mt10 href="/users/sign_up" style="width:100%" アカウント登録
           - render "devise/shared/links"
       .modal-footer
         button.btn.btn-danger data-dismiss="modal" type="button"  Close
