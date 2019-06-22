@@ -3,11 +3,16 @@
 .login
   h2.login-header Sign Up
   .login-container
+    - if resource.errors.present?
+      - resource.errors.full_messages.each do |msg|
+        p.alert.alert-danger
+          = msg
+
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       .wrap
         p メールアドレス
         .field
-          = f.email_field :email, placeholder: "メールアドレスまたはユーザ名", style: 'width:100%'
+          = f.email_field :email, placeholder: "メールアドレス", style: 'width:100%'
         br
         p パスワード
         .field
