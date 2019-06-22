@@ -321,7 +321,7 @@ table td.icon.crab{
 }
 
 .login-header {
-  background: #28d;
+  background: #000;
   padding: 20px;
   font-size: 1.4em;
   font-weight: normal;
@@ -368,14 +368,14 @@ table td.icon.crab{
 }
 
 .login input[type="submit"] {
-  background: #28d;
+  background: #000;
   border-color: transparent;
   color: #fff;
   cursor: pointer;
 }
 
 .login input[type="submit"]:hover {
-  background: #17c;
+    background: #555;
 }
 
 /* Buttons' focus effect */
