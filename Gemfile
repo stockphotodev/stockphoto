@@ -85,6 +85,10 @@ group :development do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
+
+  # letter_opener
+  gem 'letter_opener'
+
 end
 
 
