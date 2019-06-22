@@ -20,7 +20,7 @@
                 - if devise_mapping.rememberable?
                   .field
                     a 
-                      = link_to "パスワードをお忘れですか？", "#", id: "logInToPasswordReminder", class: "btn", "data-toggle" => "modal", "data-target" => "#passwordReminderModal"
+                      = link_to "パスワードをお忘れですか？", password_path(resource_name), id: "logInToPasswordReminder", class: "btn", method: :post
               div
                 = f.submit "ログイン", class: 'btn btn-primary', style: 'width:100%'
       .modal-body style="border-top:1px solid #e9ecef"
