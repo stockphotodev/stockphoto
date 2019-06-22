@@ -1,8 +1,8 @@
 header
-  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  nav.navbar.navbar-expand-lg.navbar-light
     h2.navbar-brand
       a href="/"
-        |  Pixagraph
+        = image_tag("logo.png")
 
     ul.nav
       li.nav-item.dropdown
@@ -10,14 +10,14 @@ header
           | 画像
         .dropdown-menu
           - @image_categories.each do |category|
-            a.dropdown-item
+            p.dropdown-item
               = link_to category.name, images_path(category.id)
       li.nav-item.dropdown
         a.nav-link.dropdown-toggle[data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"]
           | イラスト
         .dropdown-menu
           - @illustration_categories.each do |category|
-            a.dropdown-item
+            p.dropdown-item
               = link_to category.name, illustrations_path(category.id)
 
       li.nav-item.dropdown
@@ -25,7 +25,7 @@ header
           | 動画
         .dropdown-menu
           - @movie_categories.each do |category|
-            a.dropdown-item
+            p.dropdown-item
               = link_to category.name, movies_path(category.id)
     ul.nav.ml-md-auto
       - unless user_signed_in?
