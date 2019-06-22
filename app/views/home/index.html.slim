@@ -1,8 +1,9 @@
 = render 'layouts/header'
 .container
-  form.form-inline.justify-content-center.top_form
-    input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" /
-    button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
+  = form_tag("/", method: "get", class: "form-inline justify-content-center top_form") do
+    = text_field_tag(:keyword, "", class: "form-control mr-sm-2", placeholder: "Search")
+    = submit_tag("Search", class: "btn btn-outline-success my-2 my-sm-0")
+
   .top_new_arrivals
     h1 新着画像
     - @images.each do |image|
