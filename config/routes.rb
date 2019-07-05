@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :test
 
   get 'terms', to: 'terms#index'
-  
+  get 'legal', to: 'legal#index'
 
   namespace :admin do
     get '/' => 'top#index'
