@@ -171,6 +171,8 @@ create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: 
   t.string "name", null: false
   t.string "email", null: false
   t.text "detail", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
 end
 
 add_foreign_key "illustration_illustration_tags", "illustration_tags"

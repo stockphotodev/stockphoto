@@ -17,6 +17,14 @@ Rails.application.routes.draw do
     post 'download' => 'movies#download'
     get 'tag' => 'movies#tag', on: :collection
   end
+
+  resources :inquiry, only: %i[index] do
+    collection do
+      post 'confirm'
+      post 'thanks'
+    end
+  end
+
   resources :test
 
   get 'terms', to: 'terms#index'

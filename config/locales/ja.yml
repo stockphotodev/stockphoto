@@ -4,3 +4,11 @@ ja:
       period:
         monthly: '月額'
         yearly: '年額'
+  activerecord: &activerecord
+    models:
+      inquiry: "お問い合わせ"
+    attributes:
+      inquiry:
+        name: "名前"
+        email: "メールアドレス"
+        detail: "お問い合わせ内容"
