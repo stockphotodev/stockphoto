@@ -6,8 +6,10 @@ class MoviesController < ApplicationController
   before_action :set_tag, only: [:show, :tag]
   before_action :authenticate_user!, except: [:index, :show, :tag]
 
+  PER = 9
+
   def index
-    @movies = Movie.where(movie_category_id: params[:format].to_i)
+    @movies = Movie.where(movie_category_id: params[:format].to_i).page(params[:page]).per(PER)
   end
 
   def show
@@ -16,7 +18,7 @@ class MoviesController < ApplicationController
 
   def tag
     @tag = MovieTag.find(params[:tag_id])
-    @movies = Movie.where(id: MovieMovieTag.where(movie_tag_id: @tag.id).pluck(:movie_id))
+    @movies = Movie.where(id: MovieMovieTag.where(movie_tag_id: @tag.id).pluck(:movie_id)).page(params[:page]).per(PER)
   end
 
   def download

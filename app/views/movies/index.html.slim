@@ -16,6 +16,8 @@
           .contents
             = image_tag(movie.movie.screenshot.url)
             p = movie.name
+      = paginate @movies
+
     - else
       h2 該当の動画はありません
 

@@ -16,6 +16,8 @@
           .contents
             = image_tag(illustration.illustration.url)
             p = illustration.name
+      = paginate @illustrations
+
     - else
       h2 該当の画像はありません
 

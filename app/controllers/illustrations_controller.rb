@@ -6,14 +6,16 @@ class IllustrationsController < ApplicationController
   before_action :set_tag, only: [:show, :tag]
   before_action :authenticate_user!, except: [:index, :show, :tag]
 
+  PER = 9
+
   def index
-    @illustrations = Illustration.where(illustration_category_id: params[:format].to_i)
+    @illustrations = Illustration.where(illustration_category_id: params[:format].to_i).page(params[:page]).per(PER)
   end
 
 
   def tag
     @tag = IllustrationTag.find(params[:tag_id])
-    @illustrations = Illustration.where(id: IllustrationIllustrationTag.where(illustration_tag_id: @tag.id).pluck(:illustration_id))
+    @illustrations = Illustration.where(id: IllustrationIllustrationTag.where(illustration_tag_id: @tag.id).pluck(:illustration_id)).page(params[:page]).per(PER)
   end
 
   def download

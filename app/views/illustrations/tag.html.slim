@@ -15,5 +15,6 @@
         .contents
           = image_tag(illustration.illustration.thumb.url)
           p = illustration.name
+      = paginate @illustrations
 
 = render 'layouts/footer'

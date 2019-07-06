@@ -5,10 +5,11 @@ class ImagesController < ApplicationController
   before_action :set_similar_image, only: [:show]
   before_action :set_same_model_image, only: [:show]
   before_action :set_tag, only: [:show, :tag]
-  
+
+  PER = 9
 
   def index
-    @images = Image.where(image_category_id: params[:format].to_i)
+    @images = Image.where(image_category_id: params[:format].to_i).page(params[:page]).per(PER)
   end
 
   def show
@@ -17,7 +18,7 @@ class ImagesController < ApplicationController
 
   def tag
     @tag = ImageTag.find(params[:tag_id])
-    @images = Image.where(id: ImageImageTag.where(image_tag_id: @tag.id).pluck(:image_id))
+    @images = Image.where(id: ImageImageTag.where(image_tag_id: @tag.id).pluck(:image_id)).page(params[:page]).per(PER)
   end
 
   def download

@@ -3,7 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
-#ridgepole
+# kaminari
+gem 'kaminari'
+
+# ridgepole
 gem 'ridgepole'
 
 # locales
