@@ -1238,7 +1238,7 @@ GEM
     websocket-extensions (0.1.3)
     xml-simple (1.1.5)
     xmlrpc (0.3.0)
-    yard (0.9.18)
+    yard (0.9.20)
 
 PLATFORMS
   ruby
@@ -1281,6 +1281,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  yard (>= 0.9.20)
 
 RUBY VERSION
    ruby 2.4.3p205
