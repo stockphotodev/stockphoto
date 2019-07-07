@@ -1,4 +1,4 @@
 class MovieCategory < ApplicationRecord
 
-  has_one :movie_category
+  has_one :movie
 end
