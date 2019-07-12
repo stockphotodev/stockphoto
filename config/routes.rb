@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+
+  resources :card, only: %i[new show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'home#index'
   devise_for :users, controllers: {
