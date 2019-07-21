@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
+      get 'thanks', to: 'card#thanks'
     end
   end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

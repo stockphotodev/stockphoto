@@ -13,14 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    plan = Plan.find(params[:user][:plan_id])
-    dl_limit = DownloadLimit.new
-    dl_limit.limit_of_image = plan.limit_of_image
-    dl_limit.limit_of_illustration = plan.limit_of_illustration
-    dl_limit.limit_of_movie = plan.limit_of_movie
-    dl_limit.user_id = @user.id
-
-    @user.download_limit = dl_limit
   end
 
   # GET /resource/edit
