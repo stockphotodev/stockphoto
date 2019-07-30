@@ -10,11 +10,13 @@
 
     .left_block
       - if user_signed_in?
-        - if current_user.download_limit.limit_of_movie > 0
-          = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_movie}枚)", movie_download_path(@movie), id: 'moviedl', class: 'btn btn-info', data: { turbolinks: false, limit: current_user.download_limit.limit_of_movie}, method: :post
+        - if current_user.plan_id.present?
+          - if current_user.download_limit.limit_of_movie > 0
+            = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_movie}枚)", movie_download_path(@movie), id: 'moviedl', class: 'btn btn-info', data: { turbolinks: false, limit: current_user.download_limit.limit_of_movie}, method: :post
+          - else
+            = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_movie}枚)", movie_download_path(@movie), disabled: true, class: 'btn btn-info', data: { turbolinks: false }, method: :post
         - else
-          = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_movie}枚)", movie_download_path(@movie), disabled: true, class: 'btn btn-info', data: { turbolinks: false }, method: :post
-
+          a.btn.btn-primary href="/card/new" 決済情報を登録
       - else
         a.btn.btn-primary href="/users/sign_in"	ログイン
 

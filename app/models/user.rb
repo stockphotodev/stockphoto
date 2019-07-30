@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :download_limit
-  belongs_to :plan 
+  # belongs_to :plan 
 end

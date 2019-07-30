@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.3'
 
+# payjp
+gem 'payjp'
+
 # kaminari
 gem 'kaminari'
 
