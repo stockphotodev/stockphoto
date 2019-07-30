@@ -2,7 +2,7 @@
 .container
   .detail
     .left_block
-      = image_tag(@image.image.url)
+      = image_tag(@image.image.thumb.url)
       p = @image.name
       - @image.image_tags.each do |tag|
         / form
