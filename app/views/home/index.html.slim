@@ -16,7 +16,7 @@
     - @illustrations.each do |illustration|
       .contents
         = link_to illustration_path(illustration.id)
-          = image_tag(illustration.illustration.to_s)
+          = image_tag(illustration.illustration.thumb.url)
           p =	illustration.name
   .top_new_arrivals
     h1 新着動画

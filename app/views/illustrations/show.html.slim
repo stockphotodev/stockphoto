@@ -2,7 +2,7 @@
 .container
   .detail
     .left_block
-      = image_tag(@illustration.illustration.url)
+      = image_tag(@illustration.illustration.thumb.url)
       p = @illustration.name
       - @illustration.illustration_tags.each do |tag|
         a.btn.btn-primary.btn-sm href="/illustrations/tag?tag_id=#{tag.id}" style="margin-right:2px;" #{tag.name}
