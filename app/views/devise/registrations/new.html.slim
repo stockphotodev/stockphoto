@@ -19,11 +19,6 @@
           = f.password_field :password, autocomplete: "off", placeholder: "パスワード", style: 'width:100%'
         br
         div
-          p 契約プラン
-          .field
-            = f.collection_select :plan_id, @plans, :id, :name, {}, {class: "form-control", style: 'width:100%'}
-        br
-        div
           = f.submit "新規登録", class: 'btn btn-primary', style: 'width:100%'
 
 = render 'layouts/footer'
