@@ -43,6 +43,7 @@ gem 'aws-sdk'
 # create thumbnail for movie
 gem 'streamio-ffmpeg'
 
+gem 'gon'
 gem 'dotenv-rails'
 gem 'config'
 
