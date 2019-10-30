@@ -13,7 +13,7 @@
 
         p id="total" style="text-align:right;font-size:22px;font-weight:bold;color:#d23232" 合計：10000円
 
-        script src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_783bed94fcd77c494226c18a"
+        script src="https://checkout.pay.jp" class="payjp-button" data-key="#{ENV['PAY_JP_KEY']}"
         p style="color:#d23232;" ※決済完了後はキャンセルできませんのでご注意ください
 
 / = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
