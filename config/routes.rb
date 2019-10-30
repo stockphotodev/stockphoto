@@ -14,6 +14,10 @@ Rails.application.routes.draw do
                registrations: 'users/registrations'
              }
 
+  resources :mypage do
+    get 'complete', to: 'mypage#complete', on: :collection
+  end
+
   resources :images do
     post 'download' => 'images#download'
     get 'tag' => 'images#tag', on: :collection

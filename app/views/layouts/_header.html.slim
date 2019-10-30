@@ -36,6 +36,9 @@ header
       - else
         li.nav-item
           a
+            = link_to 'マイページ', mypage_index_path, class: "nav-link"
+        li.nav-item
+          a
             = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
 = render partial: 'devise/sessions/new'
 = render partial: 'devise/registrations/new'
