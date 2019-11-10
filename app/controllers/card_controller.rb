@@ -24,12 +24,20 @@ class CardController < ApplicationController
 
       plan = Payjp::Plan.retrieve(params[:plan_id])
 
+      if plan.interval == 'month'
+        period = Time.zone.now + 1.month
+      elsif plan.interval == 'year'
+        period = Time.zone.now + 1.year
+      else
+        period = nil
+      end
+
       subscription = Payjp::Subscription.create(
         plan: plan.id,
         customer: customer.id
       )
 
-      @subscription = Subscription.new(user_id: current_user.id, plan_id: plan.id, subscription_id: subscription.id)
+      @subscription = Subscription.new(user_id: current_user.id, plan_id: plan.id, subscription_id: subscription.id, period: period)
 
       @plan = Plan.find(plan.id)
       dl_limit = DownloadLimit.new

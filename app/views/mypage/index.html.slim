@@ -6,7 +6,7 @@
     = form_for(resource, as: resource_name, url: mypage_path(resource_name), method: :delete) do |f|
       h2 契約プラン
       p style="font-size:20px"
-        = "#{current_user.plan.name}：#{current_user.plan.period_i18n}"
+        = "#{@plan.name}：#{@plan.period_i18n}"
 
 
       br/

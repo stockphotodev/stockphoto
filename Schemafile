@@ -161,7 +161,7 @@ create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cas
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
   t.boolean "admin_flg"
-  t.bigint "plan_id"
+  t.bigint "plan_id", default: 0
   t.index ["email"], name: "index_users_on_email", unique: true
   #t.index ["plan_id"], name: "index_users_on_plan_id"
   t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -187,6 +187,7 @@ create_table "subscriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", for
   t.integer "user_id", null: false
   t.string "plan_id", null: false
   t.string "subscription_id", null: false
+  t.datetime "period"
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false
 end

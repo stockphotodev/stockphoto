@@ -2,7 +2,7 @@ class MypageController < ApplicationController
   before_action :authenticate_user!, except: [:complete]
 
   def index
-
+    @plan = Plan.find(current_user.plan_id)
   end
 
   def destroy
