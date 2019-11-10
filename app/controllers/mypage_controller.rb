@@ -2,7 +2,11 @@ class MypageController < ApplicationController
   before_action :authenticate_user!, except: [:complete]
 
   def index
-    @plan = Plan.find(current_user.plan_id)
+    @plan = Plan.find_by(id: current_user.plan_id)
+
+    if @plan.nil?
+      redirect_to '/card/new'
+    end
   end
 
   def destroy
