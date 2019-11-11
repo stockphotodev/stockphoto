@@ -31,7 +31,7 @@ class IllustrationUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb do
     process resize_to_fit: [300, 300]
-    process :watermark
+    # process :watermark
   end
 
   def watermark
