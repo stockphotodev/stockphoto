@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   root 'home#index'
+
+  get '/search', to: 'home#search'
+
   devise_for :users, controllers: {
                registrations: 'users/registrations'
              }
