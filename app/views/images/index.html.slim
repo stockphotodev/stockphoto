@@ -1,11 +1,13 @@
 = render 'layouts/header'
-
+- breadcrumb :image_category, @image_category
 .container
   .tag_title
-    h2 カテゴリから選ぶ：#{@image_category.name}
+    ==  breadcrumbs separator: " &rsaquo; "
+  .tag_title
+    h2 タグから選ぶ
   .tag_list
-    - @image_categories.each do |image_category|
-      a.btn.btn-primary href="/images.#{image_category.id}" role="button" style="margin:2px;" #{image_category.name}
+    - @tags.each do |tag|
+      a.btn.btn-primary href="/images/tag?tag_id=#{tag.id}" role="button" style="margin:2px;" #{tag.name}
 
   .image_list
     .title

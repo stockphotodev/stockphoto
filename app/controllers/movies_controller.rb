@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
   before_action :set_category, only: [:index]
   before_action :set_similar_movie, only: [:show]
   before_action :set_same_model_movie, only: [:show]
-  before_action :set_tag, only: [:show, :tag]
+  before_action :set_tag, only: [:index, :show, :tag]
   before_action :authenticate_user!, except: [:index, :show, :tag]
 
   PER = 9

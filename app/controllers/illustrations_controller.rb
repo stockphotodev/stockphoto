@@ -3,7 +3,7 @@ class IllustrationsController < ApplicationController
   before_action :set_category, only: [:index]
   before_action :set_similar_illustration, only: [:show]
   before_action :set_same_model_illustration, only: [:show]
-  before_action :set_tag, only: [:show, :tag]
+  before_action :set_tag, only: [:index, :show, :tag]
   before_action :authenticate_user!, except: [:index, :show, :tag]
 
   PER = 9
@@ -36,7 +36,7 @@ class IllustrationsController < ApplicationController
   end
 
   def set_tag
-    @tags = ImageTag.all
+    @tags = IllustrationTag.all
   end
 
   def set_category

@@ -1,11 +1,13 @@
 = render 'layouts/header'
-
+- breadcrumb :movie_category, @movie_category
 .container
   .tag_title
-    h2 カテゴリから選ぶ：#{@movie_category.name}
+    ==  breadcrumbs separator: " &rsaquo; "
+  .tag_title
+    h2 タグから選ぶ
   .tag_list
-    - @movie_categories.each do |movie_category|
-      a.btn.btn-primary href="/movies.#{movie_category.id}" role="button" style="margin:2px;" #{movie_category.name}
+    - @tags.each do |tag|
+      a.btn.btn-primary href="/movies/tag?tag_id=#{tag.id}" role="button" style="margin:2px;" #{tag.name}
 
   .image_list
     .title
