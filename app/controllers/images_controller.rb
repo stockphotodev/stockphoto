@@ -18,7 +18,11 @@ class ImagesController < ApplicationController
 
   def tag
     @tag = ImageTag.find(params[:tag_id])
+    @category = ImageCategory.find_by(id: params[:category_id])
     @images = Image.where(id: ImageImageTag.where(image_tag_id: @tag.id).pluck(:image_id)).page(params[:page]).per(PER)
+    @breadcrumbs = {}
+    @breadcrumbs['tag'] = @tag
+    @breadcrumbs['category'] = @category
   end
 
   def download
@@ -52,6 +56,5 @@ class ImagesController < ApplicationController
 
   def set_same_model_image
     @images_of_same_model = Image.where(image_model_id: @image.image_model_id).where.not(id: @image.id)
-  end
-
+  end  
 end

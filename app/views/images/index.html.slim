@@ -7,7 +7,7 @@
     h2 タグから選ぶ
   .tag_list
     - @tags.each do |tag|
-      a.btn.btn-primary href="/images/tag?tag_id=#{tag.id}" role="button" style="margin:2px;" #{tag.name}
+      a.btn.btn-primary href="/images/tag?tag_id=#{tag.id}&category_id=#{@image_category.id}" role="button" style="margin:2px;" #{tag.name}
 
   .image_list
     .title
