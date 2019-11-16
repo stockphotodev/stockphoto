@@ -1,6 +1,8 @@
 = render 'layouts/header'
-
+- breadcrumb :illustration_tag, @breadcrumbs
 .container
+  .tag_title
+    ==  breadcrumbs separator: " &rsaquo; "
   .tag_title
     h2 タグから選ぶ
   .tag_list

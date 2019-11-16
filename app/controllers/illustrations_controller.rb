@@ -15,7 +15,11 @@ class IllustrationsController < ApplicationController
 
   def tag
     @tag = IllustrationTag.find(params[:tag_id])
+    @category = IllustrationCategory.find_by(id: params[:category_id])
     @illustrations = Illustration.where(id: IllustrationIllustrationTag.where(illustration_tag_id: @tag.id).pluck(:illustration_id)).page(params[:page]).per(PER)
+    @breadcrumbs = {}
+    @breadcrumbs['tag'] = @tag
+    @breadcrumbs['category'] = @category
   end
 
   def download

@@ -18,7 +18,11 @@ class MoviesController < ApplicationController
 
   def tag
     @tag = MovieTag.find(params[:tag_id])
+    @category = MovieCategory.find_by(id: params[:category_id])
     @movies = Movie.where(id: MovieMovieTag.where(movie_tag_id: @tag.id).pluck(:movie_id)).page(params[:page]).per(PER)
+    @breadcrumbs = {}
+    @breadcrumbs['tag'] = @tag
+    @breadcrumbs['category'] = @category
   end
 
   def download

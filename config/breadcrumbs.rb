@@ -24,14 +24,18 @@ crumb :image_tag do |breadcrumbs|
   end
 end
 
-crumb :illustration_tag do |illustration_category|
-  link illustration_category.name, illustrations_path(illustration_category.id)
-  parent :root
+crumb :illustration_tag do |breadcrumbs|
+  link breadcrumbs['tag'].name, "illustrations/tag?tag_id=#{breadcrumbs['tag'].id}"
+  if breadcrumbs['category'].present?
+    parent :illustration_category, breadcrumbs['category']
+  end
 end
 
-crumb :movie_tag do |movie_category|
-  link movie_category.name, movies_path(movie_category.id)
-  parent :root
+crumb :movie_tag do |breadcrumbs|
+  link breadcrumbs['tag'].name, "movies/tag?tag_id=#{breadcrumbs['tag'].id}"
+  if breadcrumbs['category'].present?
+    parent :movie_category, breadcrumbs['category']
+  end
 end
 
 # crumb :projects do
