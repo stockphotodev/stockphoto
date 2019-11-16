@@ -25,10 +25,10 @@
 
   - if @movies.present?
     .top_new_arrivals
-    h1 新着動画
-    - @movies.each do |movie|
-      .contents
-        = link_to movie_path(movie.id)
-          = image_tag(movie.movie.screenshot.url)
-          p =	movie.name
+      h1 新着動画
+      - @movies.each do |movie|
+        .contents
+          = link_to movie_path(movie.id)
+            = image_tag(movie.movie.screenshot.url)
+            p = movie.name
 = render 'layouts/footer'
