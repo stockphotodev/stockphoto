@@ -27,15 +27,23 @@
           .field
             = f.label :email
             br
-            = f.email_field :email, autofocus: true, autocomplete: "email"
+            = f.email_field :email, autofocus: true, autocomplete: "email", style: 'width:100%'
           br
           .field
             = f.label :password
             br/
-            = f.password_field :password, autocomplete: "current-password"
+            = f.password_field :password, autocomplete: "current-password", style: 'width:100%'
+          br
+          .field
+            a
+              = link_to "パスワードをお忘れですか？", password_path(resource_name), method: :post
           br/
           .field
-            = f.submit "ログイン"
+            = f.submit "ログイン", class: 'btn btn-primary', style: 'width:100%'
+          br/
+          div
+            a アカウントをまだお持ちではない場合は
+            a href="/users/sign_up" 新規登録
 
   .detail
     h1 類似画像
