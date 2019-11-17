@@ -15,6 +15,8 @@
             = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_movie}枚)", movie_download_path(@movie), id: 'moviedl', class: 'btn btn-info', data: { turbolinks: false, limit: current_user.download_limit.limit_of_movie}, method: :post
           - else
             = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_movie}枚)", movie_download_path(@movie), disabled: true, class: 'btn btn-info', data: { turbolinks: false }, method: :post
+          a href="/terms#banned" ！利用可能な用途と禁止事項
+
         - else
           a.btn.btn-primary href="/card/new" 決済情報を登録
       - else

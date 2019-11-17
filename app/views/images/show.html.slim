@@ -13,7 +13,7 @@
         - if current_user.plan_id.present?
           h2 style="text-align: left;margin-bottom: 30px;border-bottom: solid 3px black" サイズ
             #{@image.image.height} × #{@image.image.width}
-          a href="#" ！利用可能な用途と禁止事項
+          a href="/terms#banned" ！利用可能な用途と禁止事項
 
           - if current_user.download_limit.limit_of_image > 0
             = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_image}枚)", image_download_path(@image), id: 'imagedl', class: 'btn btn-info', data: { turbolinks: false, limit: current_user.download_limit.limit_of_image}, method: :post, style: 'width:100%'

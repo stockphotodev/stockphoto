@@ -12,7 +12,7 @@
         - if current_user.plan_id.present?
           h2 イラストサイズ
             #{@illustration.illustration.height} × #{@illustration.illustration.width}
-          a href="#" ！利用可能な用途と禁止事項
+          a href="/terms#banned" ！利用可能な用途と禁止事項
 
           - if current_user.download_limit.limit_of_illustration > 0
             = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_illustration}枚)", illustration_download_path(@illustration), id: 'illustrationdl', class: 'btn btn-info', data: { turbolinks: false, limit: current_user.download_limit.limit_of_illustration}, method: :post
