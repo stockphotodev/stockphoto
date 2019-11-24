@@ -59,4 +59,8 @@ $( function() {
             btn.setAttribute('disabled', 'disabled');
         }
     });
+    
+    $("[class^='plan_']").click( function () {
+        $(`.${$(this).attr('class')}`).prop('checked',true);
+    });
 });
