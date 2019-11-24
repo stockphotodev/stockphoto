@@ -76,4 +76,8 @@ javascript:
     limit = limit -1
     imagedl.setAttribute('data-limit', limit)
     imagedl.value = `ダウンロード(残り${limit}枚)`;
+    if (limit < 1){
+      $('#imagedl').prop("disabled", true);
+      $('#imagedl').closest('form').submit();
+    }
   });

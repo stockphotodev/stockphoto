@@ -73,4 +73,9 @@ javascript:
     limit = limit -1
     moviedl.setAttribute('data-limit', limit)
     moviedl.value = `ダウンロード(残り${limit}枚)`;
+    if (limit < 1){
+      $('#moviedl').prop("disabled", true);
+      $('#moviedl').closest('form').submit();
+    }
+
   });
