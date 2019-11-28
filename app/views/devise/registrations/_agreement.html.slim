@@ -13,18 +13,22 @@
           /     select.custom-select.custom-select-lg.mb-3 style="width:100%;border-top:1px solid #e9ecef"
           /       - @plans.each do |plan|
           /         option value="#{plan.id}" #{plan.name}：#{plan.period_i18n}
-
-        div
-          .custom-control.custom-checkbox
-            input#agreementCheck.custom-control-input type="checkbox"
-            label.custom-control-label for="agreementCheck"
-              = link_to '利用規約', '/terms'
-              | 及び
-              =	link_to	'プライバシーポリシー', '/terms'
-              | に同意する
-          br/
         div
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            .form-group
+              p ご契約プラン
+              = f.collection_select :plan_id, @plans, :id, :name, {}, {class: "custom-select custom-select-lg mb-3", style: 'width:100%', id: 'select_plan', label: '契約プラン'}
+
+            p id="total" style="text-align:right;font-size:22px;font-weight:bold;color:#d23232" 合計：10000円
+            .custom-control.custom-checkbox
+              input#agreementCheck.custom-control-input type="checkbox"
+              label.custom-control-label for="agreementCheck"
+                = link_to '利用規約', '/terms'
+                | 及び
+                =	link_to	'プライバシーポリシー', '/terms'
+                | に同意する
+            br/
+
             = f.hidden_field :email, id: 'hem'
             = f.hidden_field :password, id: 'hpass'
             = f.hidden_field :plan_id, id: 'hpid'

@@ -95,6 +95,11 @@ $( function() {
         modal.find('#hem').val(em_data);
         modal.find('#hpass').val(pass_data);
         modal.find('#hpid').val(pid_data);
+        modal.find('#select_plan').val(pid_data);
+        modal.find('#total').text(`合計金額：${gon.plans[pid_data-1].price}`);
     })
-
+    
+    $('#select_plan').change(function () {
+        $('#total').text(`合計金額：${gon.plans[$(this).val() - 1].price}`);
+    });
 });
