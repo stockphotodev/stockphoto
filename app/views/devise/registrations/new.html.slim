@@ -18,9 +18,9 @@
         .field
           = f.password_field :password, autocomplete: "off", placeholder: "パスワード", style: 'width:100%'
         br
-        p パスワード
+        p ご契約プラン
         .field
-          = f.collection_select :plan_id, @plans, :id, :name, {}, {class: "form-control", style: 'width:100%', id: 'select_plan'}
+          = f.collection_select :plan_id, @plans, :id, :name, {}, {class: "custom-select custom-select-lg mb-3", style: 'width:100%', id: 'select_plan'}
         
         div
           = f.submit "新規登録", class: 'btn btn-primary', style: 'width:100%'
