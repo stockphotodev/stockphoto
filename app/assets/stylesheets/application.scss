@@ -138,6 +138,12 @@ h1 {
     display: block;
 }
 
+.modal-dialog {
+    margin: 1.75rem auto;
+    max-width: none;
+    text-align: -webkit-center;
+}
+
 .modal-content {
     width:800px;
 }
