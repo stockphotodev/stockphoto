@@ -118,4 +118,14 @@ $( function() {
         $('#total').text(`合計金額：${price}`);
         $('#hpid').val($(this).val())
     });
+
+    $('#selectplan').change(function () {
+        price = gon.plans[$(this).val() - 1].price
+        if(gon.plans[$(this).val() - 1].period == 'yearly'){
+            price = Number(price) * 12;
+        }
+
+        $('#plan').text(`合計金額：${price}`);
+    });
+
 });

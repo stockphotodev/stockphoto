@@ -7,11 +7,11 @@
       .wrap
         p 契約プラン
         .field
-          = f.collection_select :plan_id, @plans, :id, :name, {}, {class: "form-control", style: 'width:100%', id: 'select_plan'}
+          = f.collection_select :plan_id, @plans, :id, :name, {}, {class: "form-control", style: 'width:100%', id: 'selectplan'}
         br
         button.btn.btn-success.mt10 data-target="#planModal" data-toggle="modal" type="button" style="width:100%;border-top:1px solid #e9ecef;margin-right:5px;" 料金プランを確認
 
-        p id="total" style="text-align:right;font-size:22px;font-weight:bold;color:#d23232" 合計：10000円
+        p id="plan" style="text-align:right;font-size:22px;font-weight:bold;color:#d23232" 合計：10000円
 
         script src="https://checkout.pay.jp" class="payjp-button" data-key="#{ENV['PAY_JP_KEY']}"
         p style="color:#d23232;" ※決済完了後はキャンセルできませんのでご注意ください
