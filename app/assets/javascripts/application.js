@@ -102,11 +102,20 @@ $( function() {
         modal.find('#hpass').val(pass_data);
         modal.find('#hpid').val(pid_data);
         modal.find('#select_plan').val(pid_data);
-        modal.find('#total').text(`合計金額：${gon.plans[pid_data-1].price}`);
+        if(gon.plans[pid_data-1].period == 'yearly'){
+            modal.find('#total').text(`合計金額：${gon.plans[pid_data-1].price * 12}`);
+        }else{
+            modal.find('#total').text(`合計金額：${gon.plans[pid_data-1].price}`);
+        }
     })
     
     $('#select_plan').change(function () {
-        $('#total').text(`合計金額：${gon.plans[$(this).val() - 1].price}`);
+        price = gon.plans[$(this).val() - 1].price
+        if(gon.plans[$(this).val() - 1].period == 'yearly'){
+            price = Number(price) * 12;
+        }
+
+        $('#total').text(`合計金額：${price}`);
         $('#hpid').val($(this).val())
     });
 });
