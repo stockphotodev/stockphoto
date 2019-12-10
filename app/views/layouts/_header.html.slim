@@ -66,94 +66,123 @@ header
 
         #myTabContent.tab-content
           #light.tab-pane.fade.show.active aria-labelledby="light-tab" role="tabpanel"
+            
             table
               tr
+                th
                 th.category 契約期間
                 th.title 画像
                 th.contributor イラスト
                 th.posted 動画
                 th.replies 月額料金
-              tr
-                td.category = "#{@plans[0].period_i18n}"
-                td.title = "月#{@plans[0].limit_of_image}枚"
-                td.contributor = "月#{@plans[0].limit_of_illustration}枚"
-                td.posted = "月#{@plans[0].limit_of_movie}本"
-                td.replies = "￥#{@plans[0].price}"
-              tr
-                td.category = "#{@plans[1].period_i18n}"
-                td.title = "月#{@plans[1].limit_of_image}枚"
-                td.contributor = "月#{@plans[1].limit_of_illustration}枚"
-                td.posted = "月#{@plans[1].limit_of_movie}本"
-                td.replies = "￥#{@plans[1].price}"
+              tr.content
+                td.plan_1
+                  input.plan_1.form-check-input#plan_1 name="groupOfMaterialRadios" type="radio" value=1 checked=true
+                  label.form-check-label for="materialGroupExample1"
+                td.plan_1 = "#{@plans[0].period_i18n}"
+                td.plan_1 = "月#{@plans[0].limit_of_image}枚"
+                td.plan_1 = "月#{@plans[0].limit_of_illustration}枚"
+                td.plan_1 = "月#{@plans[0].limit_of_movie}本"
+                td.plan_1 = "￥#{@plans[0].price}"
+              tr.content
+                td.plan_2
+                  input.plan_2.form-check-input#plan_2 name="groupOfMaterialRadios" type="radio" value=2
+                  label.form-check-label for="materialGroupExample2"
+                    td.plan_2 = "#{@plans[1].period_i18n}"
+                    td.plan_2 = "月#{@plans[1].limit_of_image}枚"
+                    td.plan_2 = "月#{@plans[1].limit_of_illustration}枚"
+                    td.plan_2 = "月#{@plans[1].limit_of_movie}本"
+                    td.plan_2 = "￥#{@plans[1].price}"
 
           #basic.tab-pane.fade.show aria-labelledby="basic-tab" role="tabpanel"
             table
               tr
+                th
                 th.category 契約期間
                 th.title 画像
                 th.contributor イラスト
                 th.posted 動画
                 th.replies 月額料金
-              tr
-                td.category = "#{@plans[2].period_i18n}"
-                td.title = "月#{@plans[2].limit_of_image}枚"
-                td.contributor = "月#{@plans[2].limit_of_illustration}枚"
-                td.posted = "月#{@plans[2].limit_of_movie}本"
-                td.replies = "￥#{@plans[2].price}"
-              tr
-                td.category = "#{@plans[3].period_i18n}"
-                td.title = "月#{@plans[3].limit_of_image}枚"
-                td.contributor = "月#{@plans[3].limit_of_illustration}枚"
-                td.posted = "月#{@plans[3].limit_of_movie}本"
-                td.replies = "￥#{@plans[3].price}"
+              tr.content
+                td.plan_3
+                  input.plan_3.form-check-input#plan_3 name="groupOfMaterialRadios" type="radio" value=3
+                  label.form-check-label for="materialGroupExample3"
+                td.plan_3 = "#{@plans[2].period_i18n}"
+                td.plan_3 = "月#{@plans[2].limit_of_image}枚"
+                td.plan_3 = "月#{@plans[2].limit_of_illustration}枚"
+                td.plan_3 = "月#{@plans[2].limit_of_movie}本"
+                td.plan_3 = "￥#{@plans[2].price}"
+              tr.content
+                td.plan_4
+                  input.plan_4.form-check-input#plan_4 name="groupOfMaterialRadios" type="radio" value=4
+                  label.form-check-label for="materialGroupExample4"
+                td.plan_4 = "#{@plans[3].period_i18n}"
+                td.plan_4 = "月#{@plans[3].limit_of_image}枚"
+                td.plan_4 = "月#{@plans[3].limit_of_illustration}枚"
+                td.plan_4 = "月#{@plans[3].limit_of_movie}本"
+                td.plan_4 = "￥#{@plans[3].price}"
 
           #royal.tab-pane.fade.show aria-labelledby="royal-tab" role="tabpanel"
             table
               tr
+                th
                 th.category 契約期間
                 th.title 画像
                 th.contributor イラスト
                 th.posted 動画
                 th.replies 月額料金
-              tr
-                td.category = "#{@plans[4].period_i18n}"
-                td.title = "月#{@plans[4].limit_of_image}枚"
-                td.contributor = "月#{@plans[4].limit_of_illustration}枚"
-                td.posted = "月#{@plans[4].limit_of_movie}本"
-                td.replies = "￥#{@plans[4].price}"
-              tr
-                td.category = "#{@plans[5].period_i18n}"
-                td.title = "月#{@plans[5].limit_of_image}枚"
-                td.contributor = "月#{@plans[5].limit_of_illustration}枚"
-                td.posted = "月#{@plans[5].limit_of_movie}本"
-                td.replies = "￥#{@plans[5].price}"
+              tr.content
+                td.plan_5
+                  input.plan_5.form-check-input#plan_5 name="groupOfMaterialRadios" type="radio" value=5
+                  label.form-check-label for="materialGroupExample5"
+                td.plan_5 = "#{@plans[4].period_i18n}"
+                td.plan_5 = "月#{@plans[4].limit_of_image}枚"
+                td.plan_5 = "月#{@plans[4].limit_of_illustration}枚"
+                td.plan_5 = "月#{@plans[4].limit_of_movie}本"
+                td.plan_5 = "￥#{@plans[4].price}"
+              tr.content
+                td.plan_6
+                  input.plan_6.form-check-input#plan_6 name="groupOfMaterialRadios" type="radio" value=6
+                  label.form-check-label for="materialGroupExample6"
+                td.plan_6 = "#{@plans[5].period_i18n}"
+                td.plan_6 = "月#{@plans[5].limit_of_image}枚"
+                td.plan_6 = "月#{@plans[5].limit_of_illustration}枚"
+                td.plan_6 = "月#{@plans[5].limit_of_movie}本"
+                td.plan_6 = "￥#{@plans[5].price}"
 
           #professional.tab-pane.fade.show aria-labelledby="professional-tab" role="tabpanel"
             table
               tr
+                th
                 th.category 契約期間
                 th.title 画像
                 th.contributor イラスト
                 th.posted 動画
                 th.replies 月額料金
-              tr
-                td.category = "#{@plans[6].period_i18n}"
-                td.title = "月#{@plans[6].limit_of_image}枚"
-                td.contributor = "月#{@plans[6].limit_of_illustration}枚"
-                td.posted = "月#{@plans[6].limit_of_movie}本"
-                td.replies = "￥#{@plans[6].price}"
-              tr
-                td.category = "#{@plans[7].period_i18n}"
-                td.title = "月#{@plans[7].limit_of_image}枚"
-                td.contributor = "月#{@plans[7].limit_of_illustration}枚"
-                td.posted = "月#{@plans[7].limit_of_movie}本"
-                td.replies = "￥#{@plans[7].price}"
+              tr.content
+                td.plan_7
+                  input.plan_7.form-check-input#plan_7 name="groupOfMaterialRadios" type="radio" value=7
+                  label.form-check-label for="materialGroupExample7"
+                td.plan_7 = "#{@plans[6].period_i18n}"
+                td.plan_7 = "月#{@plans[6].limit_of_image}枚"
+                td.plan_7 = "月#{@plans[6].limit_of_illustration}枚"
+                td.plan_7 = "月#{@plans[6].limit_of_movie}本"
+                td.plan_7 = "￥#{@plans[6].price}"
+              tr.content
+                td.plan_8
+                  input.plan_8.form-check-input#plan_8 name="groupOfMaterialRadios" type="radio" value=7
+                  label.form-check-label for="materialGroupExample8"
+                td.plan_8 = "#{@plans[7].period_i18n}"
+                td.plan_8 = "月#{@plans[7].limit_of_image}枚"
+                td.plan_8 = "月#{@plans[7].limit_of_illustration}枚"
+                td.plan_8 = "月#{@plans[7].limit_of_movie}本"
+                td.plan_8 = "￥#{@plans[7].price}"
       - unless user_signed_in?
         .modal-body
           div
             br/
-            a.btn.btn-success.mt10 href="/users/sign_up" style="width:100%" アカウント登録
-            /button.btn.btn-success.mt10 id="planToRegistration" style="width:100%;border-top:1px solid #e9ecef;margin-right:5px;" data-target="#registrationModal" data-toggle="modal" アカウントを作成
+            //a.btn.btn-success.mt10 href="/users/sign_up" style="width:100%" アカウント登録へ
+            button.btn.btn-success.mt10 id="planToRegistration" style="width:100%;border-top:1px solid #e9ecef;margin-right:5px;" data-target="#registrationModal" data-toggle="modal"  アカウントを作成
             / - render "devise/shared/links"
       .modal-footer
         button.btn.btn-danger data-dismiss="modal" type="button"  Close

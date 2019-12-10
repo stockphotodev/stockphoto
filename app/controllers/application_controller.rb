@@ -38,5 +38,6 @@ class ApplicationController < ActionController::Base
 
     def set_plans
       @plans = Plan.all
+      gon.plans = @plans
     end
 end

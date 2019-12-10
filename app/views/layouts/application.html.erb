@@ -6,8 +6,9 @@
     <%= csp_meta_tag %>
     <script src="https://js.pay.jp/" type="text/javascript"></script>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= include_gon %>
     <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
 
   <body>

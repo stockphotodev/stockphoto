@@ -138,8 +138,20 @@ h1 {
     display: block;
 }
 
+.modal-body {
+    p {
+        text-align: left;
+    }
+}
+
+.modal-dialog {
+    margin: 1.75rem auto;
+    max-width: none;
+    text-align: -webkit-center;
+}
+
 .modal-content {
-    width:510px;
+    width:800px;
 }
 
 table{
@@ -157,13 +169,17 @@ table tr{
   white-space: nowrap;
 }
 
-table tr:hover{
+table tr.content:hover{
   background-color: #d4f0fd;
+}
+
+table tr.content:checked{
+  background-color: #d4f000;
 }
 
 table th,table td{
   text-align: center;
-  width: 25%;
+  width: 20%;
   padding: 10px 0;
 }
 
@@ -391,4 +407,8 @@ table td.icon.crab{
 
 .input_wrap {
     text-align: center;
+}
+
+.evaluation__good {
+  display: none;
 }

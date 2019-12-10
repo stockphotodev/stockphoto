@@ -10,18 +10,20 @@
           br/
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             .wrap
+              p メールアドレス
               .field
-                = f.email_field :email, placeholder: "メールアドレス", style: 'width:100%'
+                = f.email_field :email, id: 'em', placeholder: "メールアドレス", style: 'width:100%'
               br
+              p パスワード
               .field
-                = f.password_field :password, autocomplete: "off",	placeholder: "パスワード", style: 'width:100%'
+                = f.password_field :password, autocomplete: "off",	placeholder: "パスワード", style: 'width:100%', id: 'pass'
               br/
               .field
-                = f.collection_select :plan_id, @plans, :id, :name
+                = f.hidden_field :plan_id, id: 'pid',  value: 0
               br/
 
-              div
-                = f.submit "登録", class: 'btn btn-primary', style: 'width:100%'
+              / div
+              /   = f.submit "登録", class: 'btn btn-primary', style: 'width:100%'
 
 
           / form
@@ -31,6 +33,6 @@
           /   .form-group
           /     label.control-label for="message-text" パスワード
           /     input#message-text.form-control
-          / button.btn.btn-success.mt10 id="registrationToAgreement" style="width:100%;border-top:1px solid #e9ecef" data-target="#agreementModal" data-toggle="modal" 契約手続きへ
+          button.btn.btn-success.mt10 id="registrationToAgreement" style="width:100%;border-top:1px solid #e9ecef" data-target="#agreementModal" data-toggle="modal" 契約手続きへ
       .modal-footer
         button.btn.btn-danger data-dismiss="modal" type="button"  Close
