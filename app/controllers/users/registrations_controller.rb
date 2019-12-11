@@ -1,5 +1,6 @@
 # coding: utf-8
 # frozen_string_literal: true
+require "payjp"
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
