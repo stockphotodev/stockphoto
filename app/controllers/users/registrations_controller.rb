@@ -109,11 +109,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     rescue Payjp::InvalidRequestError => e
       body = e.json_body
-      puts body
+      logger.error(body)
       redirect_to "/card/new", alert: '無効なカード情報です'
     rescue Payjp::CardError => e
       body = e.json_body
-      puts body
+      logger.error(body)
       redirect_to "/card/new", alert: '無効なカード情報です'
     end
   end
