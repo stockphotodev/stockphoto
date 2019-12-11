@@ -43,67 +43,78 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     token = ""
 
-    if params[:number].present?
-      
-      token = Payjp::Token.create(
-        {
-          :card => {
-            :number => params[:number],
-            :cvc => params[:cvc],
-            :exp_month => params[:exp_month],
-            :exp_year => params[:exp_year]
-          }
-        },
-        {
-          'X-Payjp-Direct-Token-Generate': 'true'
-        } 
-      )
-    end
+    begin
 
-    if token.blank?
-      redirect_to action: "new"
-    else
-      customer = Payjp::Customer.create(
-      description: '登録テスト', #なくてもOK
-      email: current_user.email, #なくてもOK
-      card: token,
-      metadata: {user_id: current_user.id}
-      ) #念の為metadataにuser_idを入れましたがなくてもOK
-      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
-
-      plan = Payjp::Plan.retrieve(params[:user][:plan_id])
-
-      if plan.interval == 'month'
-        period = Time.zone.now + 1.month
-      elsif plan.interval == 'year'
-        period = Time.zone.now + 1.year
-      else
-        period = nil
+      if params[:number].present?
+        
+        token = Payjp::Token.create(
+          {
+            :card => {
+              :number => params[:number],
+              :cvc => params[:cvc],
+              :exp_month => params[:exp_month],
+              :exp_year => params[:exp_year]
+            }
+          },
+          {
+            'X-Payjp-Direct-Token-Generate': 'true'
+          } 
+        )
       end
 
-      subscription = Payjp::Subscription.create(
-        plan: plan.id,
-        customer: customer.id
-      )
-
-      @subscription = Subscription.new(user_id: current_user.id, plan_id: plan.id, subscription_id: subscription.id, period: period)
-
-      @plan = Plan.find(plan.id)
-      dl_limit = DownloadLimit.new
-      dl_limit.limit_of_image = @plan.limit_of_image
-      dl_limit.limit_of_illustration = @plan.limit_of_illustration
-      dl_limit.limit_of_movie = @plan.limit_of_movie
-      dl_limit.user_id = current_user.id
-
-      @user = User.find(current_user.id)
-      @user.plan_id = @plan.id
-      
-      if @card.save && @subscription.save && dl_limit.save && @user.save
-        # redirect_to action: "thanks"
-        redirect_to thanks_card_index_path and return
+      if token.blank?
+        redirect_to action: "new"
       else
-        redirect_to action: "pay"
+        customer = Payjp::Customer.create(
+          description: '登録テスト', #なくてもOK
+          email: current_user.email, #なくてもOK
+          card: token,
+          metadata: {user_id: current_user.id}
+        ) #念の為metadataにuser_idを入れましたがなくてもOK
+        @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+
+        plan = Payjp::Plan.retrieve(params[:user][:plan_id])
+
+        if plan.interval == 'month'
+          period = Time.zone.now + 1.month
+        elsif plan.interval == 'year'
+          period = Time.zone.now + 1.year
+        else
+          period = nil
+        end
+
+        subscription = Payjp::Subscription.create(
+          plan: plan.id,
+          customer: customer.id
+        )
+
+        @subscription = Subscription.new(user_id: current_user.id, plan_id: plan.id, subscription_id: subscription.id, period: period)
+
+        @plan = Plan.find(plan.id)
+        dl_limit = DownloadLimit.new
+        dl_limit.limit_of_image = @plan.limit_of_image
+        dl_limit.limit_of_illustration = @plan.limit_of_illustration
+        dl_limit.limit_of_movie = @plan.limit_of_movie
+        dl_limit.user_id = current_user.id
+
+        @user = User.find(current_user.id)
+        @user.plan_id = @plan.id
+        
+        if @card.save && @subscription.save && dl_limit.save && @user.save
+          # redirect_to action: "thanks"
+          redirect_to thanks_card_index_path and return
+        else
+          redirect_to "/card/new"
+        end
       end
+    rescue Payjp::InvalidRequestError => e
+      body = e.json_body
+      puts body
+      redirect_to "/card/new", alert: '無効なカード情報です'
+    rescue Payjp::CardError => e
+      body = e.json_body
+      puts body
+      redirect_to "/card/new", alert: '無効なカード情報です'
     end
   end
 
