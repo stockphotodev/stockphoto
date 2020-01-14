@@ -62,13 +62,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
         )
       end
 
-      if token.blank?
+      if params['payjp-token'].blank?
         redirect_to action: "new"
       else
         customer = Payjp::Customer.create(
           description: '登録テスト', #なくてもOK
           email: current_user.email, #なくてもOK
-          card: token,
+          card: params['payjp-token'],
           metadata: {user_id: current_user.id}
         ) #念の為metadataにuser_idを入れましたがなくてもOK
         @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
@@ -99,10 +99,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
         @user = User.find(current_user.id)
         @user.plan_id = @plan.id
-        
+
         if @card.save && @subscription.save && dl_limit.save && @user.save
           # redirect_to action: "thanks"
-          redirect_to thanks_card_index_path and return
+          redirect_to "/card/thanks" and return
         else
           redirect_to "/card/new"
         end

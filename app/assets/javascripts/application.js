@@ -61,7 +61,7 @@ $( function() {
 
     // 規約同意のチェックボックスの状態によってボタンを切り替え
     $('#agreementCheck').click( function () {
-        var btn = document.getElementById('submit');
+        var btn = document.getElementById('agree');
         if ($('#agreementCheck').prop('checked')) {
             btn.removeAttribute('disabled');
         } else {
