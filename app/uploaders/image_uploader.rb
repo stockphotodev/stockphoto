@@ -1,3 +1,4 @@
+# coding: utf-8
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -39,12 +40,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb do
     process resize_to_fit: [200, 300]
-    #process :watermark
+    process :watermark
   end
 
-  # version :watermarked do
-  #   process :watermark
-  # end
+  version :watermarked do
+    process :watermark
+  end
 
   def watermark
     image = MiniMagick::Image.open(file.path)
@@ -52,6 +53,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
     manipulate! do |img|
       result = img.composite(logo) do |c|
+      #img.composite(logo) do |c|
+        # c.compose "Screen"  ##タイプ "Over"でもいいかな
+        # # c.gravity "Southeast"  ##位置
+        # c.geometry "+15+15"  ## 右下を基準に ?px 空けるか
+        # c.dissolve "30%" ## 透過率
         c.gravity "center"
       end
       result
