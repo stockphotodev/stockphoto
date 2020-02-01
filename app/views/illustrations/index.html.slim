@@ -16,7 +16,7 @@
       - @illustrations.each do |illustration|
         = link_to illustration_path(illustration.id)
           .contents
-            = image_tag(illustration.illustration.url)
+            = image_tag(illustration.illustration.thumb.url)
             p = illustration.name
       = paginate @illustrations
 
