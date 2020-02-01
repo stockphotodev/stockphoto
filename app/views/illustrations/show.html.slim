@@ -10,7 +10,7 @@
     .right_block
       - if user_signed_in?
         - if current_user.plan_id.present?
-          h2 イラストサイズ
+          h3.left イラストサイズ
             #{@illustration.illustration.height} × #{@illustration.illustration.width}
           a href="/terms#banned" ！利用可能な用途と禁止事項
 
@@ -45,8 +45,8 @@
             a href="/users/sign_up" 新規登録
 
 
-  .detail
-    h1 類似イメージ
+  .image_list
+    h3.left 類似イメージ
     - if @similar_illustration.present?
       - @similar_illustration.each do |similar_illustration|
         = link_to illustration_path(similar_illustration.id)
@@ -56,8 +56,8 @@
     - else
       p 類似のイラストはありません
 
-  .detail
-    h1 同じモデルの画像
+  .image_list
+    h3.left 同じモデルの画像
     - if @illustrations_of_same_model.present?
       - @illustrations_of_same_model.each do |iosm|
         = link_to illustration_path(iosm.id)

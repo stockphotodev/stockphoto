@@ -5,14 +5,14 @@
     = select_tag('type', options_for_select(['画像','イラスト','動画']), class: "form-control mr-sm-2")
     = submit_tag("Search", class: "btn btn-outline-success my-2 my-sm-0")
 
-  .top_new_arrivals
+  .image_list
     h3.left 新着画像
     - @images.each do |image|
       .contents
         = link_to image_path(image.id)
           = image_tag(image.image.thumb.url)
           p = image.name
-  .top_new_arrivals
+  .image_list
     h3.left 新着イラスト
     - @illustrations.each do |illustration|
       .contents

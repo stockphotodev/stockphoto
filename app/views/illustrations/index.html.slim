@@ -4,14 +4,14 @@
   .tag_title
     ==  breadcrumbs separator: " &rsaquo; "
   .tag_title
-    h2 タグから選ぶ
+    h3.left タグから選ぶ
   .tag_list
     - @tags.each do |tag|
       a.btn.btn-primary href="/illustrations/tag?tag_id=#{tag.id}&category_id=#{@illustration_category.id}" role="button" style="margin:2px;" #{tag.name}
 
   .image_list
     .title
-      h2 全てのイラスト
+      h3.left 全てのイラスト
     - if @illustrations.present?
       - @illustrations.each do |illustration|
         = link_to illustration_path(illustration.id)
@@ -21,6 +21,6 @@
       = paginate @illustrations
 
     - else
-      h2 該当の画像はありません
+      h3.left 該当の画像はありません
 
 = render 'layouts/footer'

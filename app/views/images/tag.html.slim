@@ -4,14 +4,14 @@
   .tag_title
     ==  breadcrumbs separator: " &rsaquo; "
   .tag_title
-    h2 タグから選ぶ
+    h3.left タグから選ぶ
   .tag_list
     - @tags.each do |tag|
       a.btn.btn-primary href="/images/tag?tag_id=#{tag.id}" role="button" style="margin:2px;" #{tag.name}
 
   .image_list
     .title
-      h2 全ての画像
+      h3.left 全ての画像
     - @images.each do |image|
       .contents
         = link_to image_path(image.id)

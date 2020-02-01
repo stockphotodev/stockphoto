@@ -45,8 +45,8 @@
             a アカウントをまだお持ちではない場合は
             a href="/users/sign_up" 新規登録
 
-  .detail
-    h1 類似画像
+  .image_list
+    h3.left 類似画像
     - if @similar_image.present?
       - @similar_image.each do |similar_image|
         = link_to image_path(similar_image.id)
@@ -56,8 +56,8 @@
     - else
       p 類似の画像はありません
 
-  .detail
-    h1 同じモデルの画像
+  .image_list
+    h3.left 同じモデルの画像
     - if @images_of_same_model.present?
       - @images_of_same_model.each do |iosm|
         = link_to image_path(iosm.id)
