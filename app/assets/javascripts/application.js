@@ -105,11 +105,11 @@ $( function() {
         if(gon.plans[pid_data-1].period == 'yearly'){
             price = gon.plans[pid_data-1].price * 12
             price = price.toLocaleString()
-            modal.find('#total').text(`合計金額：${price}`);
+            modal.find('#total').text(`合計金額：${price}円`);
         }else{
             price = gon.plans[pid_data-1].price
             price = price.toLocaleString()
-            modal.find('#total').text(`合計金額：${price}`);
+            modal.find('#total').text(`合計金額：${price}円`);
         }
     })
     
@@ -120,7 +120,7 @@ $( function() {
         }
         price = price.toLocaleString()
 
-        $('#total').text(`合計金額：${price}`);
+        $('#total').text(`合計金額：${price}円`);
         $('#hpid').val($(this).val())
     });
 
@@ -131,7 +131,7 @@ $( function() {
         }
         price = price.toLocaleString()
 
-        $('#plan').text(`合計金額：${price}`);
+        $('#plan').text(`合計金額：${price}円`);
     });
 
 });
