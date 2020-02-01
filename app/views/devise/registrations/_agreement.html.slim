@@ -24,7 +24,7 @@
               p ご契約プラン
               = f.collection_select :plan_id, @plans, :id, :name, {}, {class: "custom-select custom-select-lg mb-3", style: 'width:100%', id: 'select_plan', label: '契約プラン'}
 
-            p id="total" style="text-align:right;font-size:22px;font-weight:bold;color:#d23232" 合計：10000円
+            p id="total" style="text-align:right;font-size:22px;font-weight:bold;color:#d23232" 合計：10,000円
 
             script src="https://checkout.pay.jp" class="payjp-button" data-key="#{ENV['PAY_JP_KEY']}" data-text="カード情報を入力" style="width:100%" data-partial="true"
             br

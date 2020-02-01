@@ -103,9 +103,13 @@ $( function() {
         modal.find('#hpid').val(pid_data);
         modal.find('#select_plan').val(pid_data);
         if(gon.plans[pid_data-1].period == 'yearly'){
-            modal.find('#total').text(`合計金額：${gon.plans[pid_data-1].price * 12}`);
+            price = gon.plans[pid_data-1].price * 12
+            price = price.toLocaleString()
+            modal.find('#total').text(`合計金額：${price}`);
         }else{
-            modal.find('#total').text(`合計金額：${gon.plans[pid_data-1].price}`);
+            price = gon.plans[pid_data-1].price
+            price = price.toLocaleString()
+            modal.find('#total').text(`合計金額：${price}`);
         }
     })
     
@@ -114,6 +118,7 @@ $( function() {
         if(gon.plans[$(this).val() - 1].period == 'yearly'){
             price = Number(price) * 12;
         }
+        price = price.toLocaleString()
 
         $('#total').text(`合計金額：${price}`);
         $('#hpid').val($(this).val())
@@ -124,6 +129,7 @@ $( function() {
         if(gon.plans[$(this).val() - 1].period == 'yearly'){
             price = Number(price) * 12;
         }
+        price = price.toLocaleString()
 
         $('#plan').text(`合計金額：${price}`);
     });

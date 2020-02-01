@@ -71,8 +71,8 @@ header
               tr
                 th
                 th.category 契約期間
-                th.title 画像
-                th.contributor イラスト
+                th.title 画像/イラスト
+                //th.contributor イラスト
                 //th.posted 動画
                 th.replies 月額料金
               tr.content
@@ -81,26 +81,26 @@ header
                   label.form-check-label for="materialGroupExample1"
                 td.plan_1 = "#{@plans[0].period_i18n}"
                 td.plan_1 = "月#{@plans[0].limit_of_image}枚"
-                td.plan_1 = "月#{@plans[0].limit_of_illustration}枚"
+                //td.plan_1 = "月#{@plans[0].limit_of_illustration}枚"
                 // td.plan_1 = "月#{@plans[0].limit_of_movie}本"
-                td.plan_1 = "￥#{@plans[0].price}"
+                td.plan_1 = "￥#{@plans[0].price.to_s(:delimited)}"
               tr.content
                 td.plan_2
                   input.plan_2.form-check-input#plan_2 name="groupOfMaterialRadios" type="radio" value=2
                   label.form-check-label for="materialGroupExample2"
                     td.plan_2 = "#{@plans[1].period_i18n}"
                     td.plan_2 = "月#{@plans[1].limit_of_image}枚"
-                    td.plan_2 = "月#{@plans[1].limit_of_illustration}枚"
+                    //td.plan_2 = "月#{@plans[1].limit_of_illustration}枚"
                     //td.plan_2 = "月#{@plans[1].limit_of_movie}本"
-                    td.plan_2 = "￥#{@plans[1].price}"
+                    td.plan_2 = "￥#{@plans[1].price.to_s(:delimited)}"
 
           #basic.tab-pane.fade.show aria-labelledby="basic-tab" role="tabpanel"
             table
               tr
                 th
                 th.category 契約期間
-                th.title 画像
-                th.contributor イラスト
+                th.title 画像/イラスト
+                //th.contributor イラスト
                 //th.posted 動画
                 th.replies 月額料金
               tr.content
@@ -109,26 +109,26 @@ header
                   label.form-check-label for="materialGroupExample3"
                 td.plan_3 = "#{@plans[2].period_i18n}"
                 td.plan_3 = "月#{@plans[2].limit_of_image}枚"
-                td.plan_3 = "月#{@plans[2].limit_of_illustration}枚"
+                //td.plan_3 = "月#{@plans[2].limit_of_illustration}枚"
                 //td.plan_3 = "月#{@plans[2].limit_of_movie}本"
-                td.plan_3 = "￥#{@plans[2].price}"
+                td.plan_3 = "￥#{@plans[2].price.to_s(:delimited)}"
               tr.content
                 td.plan_4
                   input.plan_4.form-check-input#plan_4 name="groupOfMaterialRadios" type="radio" value=4
                   label.form-check-label for="materialGroupExample4"
                 td.plan_4 = "#{@plans[3].period_i18n}"
                 td.plan_4 = "月#{@plans[3].limit_of_image}枚"
-                td.plan_4 = "月#{@plans[3].limit_of_illustration}枚"
+                //td.plan_4 = "月#{@plans[3].limit_of_illustration}枚"
                 //td.plan_4 = "月#{@plans[3].limit_of_movie}本"
-                td.plan_4 = "￥#{@plans[3].price}"
+                td.plan_4 = "￥#{@plans[3].price.to_s(:delimited)}"
 
           #royal.tab-pane.fade.show aria-labelledby="royal-tab" role="tabpanel"
             table
               tr
                 th
                 th.category 契約期間
-                th.title 画像
-                th.contributor イラスト
+                th.title 画像/イラスト
+                //th.contributor イラスト
                 //th.posted 動画
                 th.replies 月額料金
               tr.content
@@ -137,26 +137,26 @@ header
                   label.form-check-label for="materialGroupExample5"
                 td.plan_5 = "#{@plans[4].period_i18n}"
                 td.plan_5 = "月#{@plans[4].limit_of_image}枚"
-                td.plan_5 = "月#{@plans[4].limit_of_illustration}枚"
+                //td.plan_5 = "月#{@plans[4].limit_of_illustration}枚"
                 //td.plan_5 = "月#{@plans[4].limit_of_movie}本"
-                td.plan_5 = "￥#{@plans[4].price}"
+                td.plan_5 = "￥#{@plans[4].price.to_s(:delimited)}"
               tr.content
                 td.plan_6
                   input.plan_6.form-check-input#plan_6 name="groupOfMaterialRadios" type="radio" value=6
                   label.form-check-label for="materialGroupExample6"
                 td.plan_6 = "#{@plans[5].period_i18n}"
                 td.plan_6 = "月#{@plans[5].limit_of_image}枚"
-                td.plan_6 = "月#{@plans[5].limit_of_illustration}枚"
+                //td.plan_6 = "月#{@plans[5].limit_of_illustration}枚"
                 //td.plan_6 = "月#{@plans[5].limit_of_movie}本"
-                td.plan_6 = "￥#{@plans[5].price}"
+                td.plan_6 = "￥#{@plans[5].price.to_s(:delimited)}"
 
           #professional.tab-pane.fade.show aria-labelledby="professional-tab" role="tabpanel"
             table
               tr
                 th
                 th.category 契約期間
-                th.title 画像
-                th.contributor イラスト
+                th.title 画像/イラスト
+                //th.contributor イラスト
                 //th.posted 動画
                 th.replies 月額料金
               tr.content
@@ -165,18 +165,18 @@ header
                   label.form-check-label for="materialGroupExample7"
                 td.plan_7 = "#{@plans[6].period_i18n}"
                 td.plan_7 = "月#{@plans[6].limit_of_image}枚"
-                td.plan_7 = "月#{@plans[6].limit_of_illustration}枚"
+                //td.plan_7 = "月#{@plans[6].limit_of_illustration}枚"
                 //td.plan_7 = "月#{@plans[6].limit_of_movie}本"
-                td.plan_7 = "￥#{@plans[6].price}"
+                td.plan_7 = "￥#{@plans[6].price.to_s(:delimited)}"
               tr.content
                 td.plan_8
                   input.plan_8.form-check-input#plan_8 name="groupOfMaterialRadios" type="radio" value=7
                   label.form-check-label for="materialGroupExample8"
                 td.plan_8 = "#{@plans[7].period_i18n}"
                 td.plan_8 = "月#{@plans[7].limit_of_image}枚"
-                td.plan_8 = "月#{@plans[7].limit_of_illustration}枚"
+                //td.plan_8 = "月#{@plans[7].limit_of_illustration}枚"
                 //td.plan_8 = "月#{@plans[7].limit_of_movie}本"
-                td.plan_8 = "￥#{@plans[7].price}"
+                td.plan_8 = "￥#{@plans[7].price.to_s(:delimited)}"
       - unless user_signed_in?
         .modal-body
           div
