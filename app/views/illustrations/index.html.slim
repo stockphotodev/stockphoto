@@ -14,8 +14,8 @@
       h3.left 全てのイラスト
     - if @illustrations.present?
       - @illustrations.each do |illustration|
-        = link_to illustration_path(illustration.id)
-          .contents
+        .contents
+          = link_to illustration_path(illustration.id)
             = image_tag(illustration.illustration.thumb.url)
             p = illustration.name
       = paginate @illustrations

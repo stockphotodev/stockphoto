@@ -49,8 +49,8 @@
     h3.left 類似イメージ
     - if @similar_illustration.present?
       - @similar_illustration.each do |similar_illustration|
-        = link_to illustration_path(similar_illustration.id)
-          .contents
+        .contents
+          = link_to illustration_path(similar_illustration.id)
             = image_tag(similar_illustration.illustration.url)
             p = similar_illustration.name
     - else
@@ -60,8 +60,8 @@
     h3.left 同じモデルの画像
     - if @illustrations_of_same_model.present?
       - @illustrations_of_same_model.each do |iosm|
-        = link_to illustration_path(iosm.id)
-          .contents
+        .contents
+          = link_to illustration_path(iosm.id)
             = image_tag(iosm.illustration.url)
             p = iosm.name
     - else
