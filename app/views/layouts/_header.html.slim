@@ -20,13 +20,13 @@ header
             p.dropdown-item
               = link_to category.name, illustrations_path(category.id)
 
-      li.nav-item.dropdown
-        a.nav-link.dropdown-toggle[data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"]
-          | 動画
-        .dropdown-menu
-          - @movie_categories.each do |category|
-            p.dropdown-item
-              = link_to category.name, movies_path(category.id)
+      / li.nav-item.dropdown
+      /   a.nav-link.dropdown-toggle[data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"]
+      /     | 動画
+      /   .dropdown-menu
+      /     - @movie_categories.each do |category|
+      /       p.dropdown-item
+      /         = link_to category.name, movies_path(category.id)
     ul.nav.ml-md-auto
       - unless user_signed_in?
         li.nav-item
@@ -73,7 +73,7 @@ header
                 th.category 契約期間
                 th.title 画像
                 th.contributor イラスト
-                th.posted 動画
+                //th.posted 動画
                 th.replies 月額料金
               tr.content
                 td.plan_1
@@ -82,7 +82,7 @@ header
                 td.plan_1 = "#{@plans[0].period_i18n}"
                 td.plan_1 = "月#{@plans[0].limit_of_image}枚"
                 td.plan_1 = "月#{@plans[0].limit_of_illustration}枚"
-                td.plan_1 = "月#{@plans[0].limit_of_movie}本"
+                // td.plan_1 = "月#{@plans[0].limit_of_movie}本"
                 td.plan_1 = "￥#{@plans[0].price}"
               tr.content
                 td.plan_2
@@ -91,7 +91,7 @@ header
                     td.plan_2 = "#{@plans[1].period_i18n}"
                     td.plan_2 = "月#{@plans[1].limit_of_image}枚"
                     td.plan_2 = "月#{@plans[1].limit_of_illustration}枚"
-                    td.plan_2 = "月#{@plans[1].limit_of_movie}本"
+                    //td.plan_2 = "月#{@plans[1].limit_of_movie}本"
                     td.plan_2 = "￥#{@plans[1].price}"
 
           #basic.tab-pane.fade.show aria-labelledby="basic-tab" role="tabpanel"
@@ -101,7 +101,7 @@ header
                 th.category 契約期間
                 th.title 画像
                 th.contributor イラスト
-                th.posted 動画
+                //th.posted 動画
                 th.replies 月額料金
               tr.content
                 td.plan_3
@@ -110,7 +110,7 @@ header
                 td.plan_3 = "#{@plans[2].period_i18n}"
                 td.plan_3 = "月#{@plans[2].limit_of_image}枚"
                 td.plan_3 = "月#{@plans[2].limit_of_illustration}枚"
-                td.plan_3 = "月#{@plans[2].limit_of_movie}本"
+                //td.plan_3 = "月#{@plans[2].limit_of_movie}本"
                 td.plan_3 = "￥#{@plans[2].price}"
               tr.content
                 td.plan_4
@@ -119,7 +119,7 @@ header
                 td.plan_4 = "#{@plans[3].period_i18n}"
                 td.plan_4 = "月#{@plans[3].limit_of_image}枚"
                 td.plan_4 = "月#{@plans[3].limit_of_illustration}枚"
-                td.plan_4 = "月#{@plans[3].limit_of_movie}本"
+                //td.plan_4 = "月#{@plans[3].limit_of_movie}本"
                 td.plan_4 = "￥#{@plans[3].price}"
 
           #royal.tab-pane.fade.show aria-labelledby="royal-tab" role="tabpanel"
@@ -129,7 +129,7 @@ header
                 th.category 契約期間
                 th.title 画像
                 th.contributor イラスト
-                th.posted 動画
+                //th.posted 動画
                 th.replies 月額料金
               tr.content
                 td.plan_5
@@ -138,7 +138,7 @@ header
                 td.plan_5 = "#{@plans[4].period_i18n}"
                 td.plan_5 = "月#{@plans[4].limit_of_image}枚"
                 td.plan_5 = "月#{@plans[4].limit_of_illustration}枚"
-                td.plan_5 = "月#{@plans[4].limit_of_movie}本"
+                //td.plan_5 = "月#{@plans[4].limit_of_movie}本"
                 td.plan_5 = "￥#{@plans[4].price}"
               tr.content
                 td.plan_6
@@ -147,7 +147,7 @@ header
                 td.plan_6 = "#{@plans[5].period_i18n}"
                 td.plan_6 = "月#{@plans[5].limit_of_image}枚"
                 td.plan_6 = "月#{@plans[5].limit_of_illustration}枚"
-                td.plan_6 = "月#{@plans[5].limit_of_movie}本"
+                //td.plan_6 = "月#{@plans[5].limit_of_movie}本"
                 td.plan_6 = "￥#{@plans[5].price}"
 
           #professional.tab-pane.fade.show aria-labelledby="professional-tab" role="tabpanel"
@@ -157,7 +157,7 @@ header
                 th.category 契約期間
                 th.title 画像
                 th.contributor イラスト
-                th.posted 動画
+                //th.posted 動画
                 th.replies 月額料金
               tr.content
                 td.plan_7
@@ -166,7 +166,7 @@ header
                 td.plan_7 = "#{@plans[6].period_i18n}"
                 td.plan_7 = "月#{@plans[6].limit_of_image}枚"
                 td.plan_7 = "月#{@plans[6].limit_of_illustration}枚"
-                td.plan_7 = "月#{@plans[6].limit_of_movie}本"
+                //td.plan_7 = "月#{@plans[6].limit_of_movie}本"
                 td.plan_7 = "￥#{@plans[6].price}"
               tr.content
                 td.plan_8
@@ -175,7 +175,7 @@ header
                 td.plan_8 = "#{@plans[7].period_i18n}"
                 td.plan_8 = "月#{@plans[7].limit_of_image}枚"
                 td.plan_8 = "月#{@plans[7].limit_of_illustration}枚"
-                td.plan_8 = "月#{@plans[7].limit_of_movie}本"
+                //td.plan_8 = "月#{@plans[7].limit_of_movie}本"
                 td.plan_8 = "￥#{@plans[7].price}"
       - unless user_signed_in?
         .modal-body

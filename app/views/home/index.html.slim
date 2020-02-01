@@ -2,7 +2,7 @@
 .container
   = form_tag("/search", method: "get", class: "form-inline justify-content-center top_form") do
     = text_field_tag(:keyword, "", class: "form-control mr-sm-2", placeholder: "Search")
-    = select_tag('type', options_for_select(['画像','イラスト','動画']), class: "form-control mr-sm-2")
+    = select_tag('type', options_for_select(['画像','イラスト']), class: "form-control mr-sm-2")
     = submit_tag("Search", class: "btn btn-outline-success my-2 my-sm-0")
 
   .image_list
