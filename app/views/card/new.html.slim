@@ -11,9 +11,9 @@
         br
         button.btn.btn-success.mt10 data-target="#planModal" data-toggle="modal" type="button" style="width:100%;border-top:1px solid #e9ecef;margin-right:5px;" 料金プランを確認
 
-        p id="plan" style="text-align:right;font-size:22px;font-weight:bold;color:#d23232" 合計：10000円
+        p id="plan" style="text-align:right;font-size:22px;font-weight:bold;color:#d23232" 合計：10,000円
 
-        script src="https://checkout.pay.jp" class="payjp-button" data-key="#{ENV['PAY_JP_KEY']}"
+        script src="https://checkout.pay.jp" class="payjp-button" data-key="#{ENV['PAY_JP_KEY']}" data-text="カード情報を入力" style="width:100%" data-partial="true"
         p style="color:#d23232;" ※決済完了後はキャンセルできませんのでご注意ください
 
 / = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do

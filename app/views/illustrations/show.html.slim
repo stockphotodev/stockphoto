@@ -17,7 +17,7 @@
           - if current_user.download_limit.limit_of_illustration > 0
             = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_illustration}枚)", illustration_download_path(@illustration), id: 'illustrationdl', class: 'btn btn-info', data: { turbolinks: false, limit: current_user.download_limit.limit_of_illustration}, method: :post
           - else
-            = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_illustration}枚)", illustration_download_path(@illustration), disabled: true, class: 'btn btn-info', data: { turbolinks: false }, method: :post
+            = button_to "ダウンロード(残り#{current_user.download_limit.limit_of_illustration}枚)", illustration_download_path(@illustration), disabled: true, class: 'btn btn-info', data: { turbolinks: false }, method: :post, style: 'background-color:#CCCCCC;border-color:#CCCCCC;'
         - else
           a.btn.btn-primary href="/card/new" 決済情報を登録
 
@@ -78,6 +78,7 @@ javascript:
     illustrationdl.value = `ダウンロード(残り${limit}枚)`;
     if (limit < 1){
       $('#illustrationdl').prop("disabled", true);
+      $('#illustrationdl').css({'background-color':'#CCCCCC','border-color':'#CCCCCC'})
       $('#illustrationdl').closest('form').submit();
     }
   });
