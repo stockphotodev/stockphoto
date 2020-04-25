@@ -30,6 +30,9 @@ gem 'cancancan'
 # devise
 gem 'devise'
 
+# recaptcha
+gem "recaptcha", require: "recaptcha/rails"
+
 # slim
 gem 'slim-rails'
 gem 'html2slim'
