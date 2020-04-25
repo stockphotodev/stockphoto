@@ -27,3 +27,6 @@ ja:
         name: "名前"
         email: "メールアドレス"
         detail: "お問い合わせ内容"
+  recaptcha: 
+    errors: 
+      verification_failed: 'reCAPTCHA認証に失敗しました。' 
