@@ -22,6 +22,10 @@
         .field
           = f.collection_select :plan_id, @plans, :id, :name, {}, {class: "custom-select custom-select-lg mb-3", style: 'width:100%', id: 'select_plan'}
         
+        button.btn.btn-success.mt10 data-target="#planModal" data-toggle="modal" type="button" style="width:100%;border-top:1px solid #e9ecef;margin-right:5px;margin-bottom:20px;;" 料金プランを確認
+
+        script src="https://checkout.pay.jp" class="payjp-button" data-key="#{ENV['PAY_JP_KEY']}" data-text="カード情報を入力" style="width:100%" data-partial="true"
+
         .field
           br
           = recaptcha_tags

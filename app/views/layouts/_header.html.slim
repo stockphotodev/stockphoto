@@ -29,10 +29,11 @@ header
       /         = link_to category.name, movies_path(category.id)
     ul.nav.ml-md-auto
       - unless user_signed_in?
-        li.nav-item
-          button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#planModal" data-toggle="modal" type="button" style="margin-right:20px;" 料金プラン
-        li.nav-item
-          button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#logInModal" data-toggle="modal" type="button" ログイン
+        - unless controller.controller_name == "registrations"
+          li.nav-item
+            button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#planModal" data-toggle="modal" type="button" style="margin-right:20px;" 料金プラン
+          li.nav-item
+            button.btn.btn-sm.btn-outline-secondary.nav-link data-target="#logInModal" data-toggle="modal" type="button" ログイン
       - else
         li.nav-item
           a
@@ -41,9 +42,10 @@ header
           a
             = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link"
 = render partial: 'devise/sessions/new'
-= render partial: 'devise/registrations/new'
-= render partial: 'devise/registrations/agreement'
-= render partial: 'devise/registrations/thanks'
+- unless user_signed_in? || controller.controller_name == "registrations"
+  = render partial: 'devise/registrations/new'
+  = render partial: 'devise/registrations/agreement'
+  = render partial: 'devise/registrations/thanks'
 = render partial: 'devise/passwords/new'
 
 #planModal.modal.fade
@@ -177,7 +179,7 @@ header
                 //td.plan_8 = "月#{@plans[7].limit_of_illustration}枚"
                 //td.plan_8 = "月#{@plans[7].limit_of_movie}本"
                 td.plan_8 = "￥#{@plans[7].price.to_s(:delimited)}"
-      - unless user_signed_in?
+      - unless (user_signed_in? || controller.controller_name == "registrations")
         .modal-body
           div
             br/
