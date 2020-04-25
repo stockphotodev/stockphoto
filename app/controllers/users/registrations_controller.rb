@@ -178,6 +178,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     self.resource = resource_class.new sign_up_params
     resource.validate
     unless verify_recaptcha(model: resource)
+      @plans = Plan.all
+      gon.plans = @plans
+      
+      @image_categories = ImageCategory.all
+      @illustration_categories = IllustrationCategory.all
+      @movie_categories = MovieCategory.all
+
       respond_with_navigational(resource) { render :new }
     end
   end
