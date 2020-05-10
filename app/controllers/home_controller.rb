@@ -3,9 +3,9 @@ class HomeController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @images = Image.last(6).reverse
-    @illustrations = Illustration.last(6).reverse
-    @movies = Movie.last(6).reverse
+    @images = Image.last(32).reverse
+    @illustrations = Illustration.last(32).reverse
+    @movies = Movie.last(32).reverse
   end
 
   def search
@@ -14,11 +14,11 @@ class HomeController < ApplicationController
 
     case type
     when '画像' then
-      @images = Image.where("name LIKE ?", "%#{keyword}%").last(6).reverse
+      @images = Image.where("name LIKE ?", "%#{keyword}%").last(32).reverse
     when 'イラスト' then
-      @illustrations = Illustration.where("name LIKE ?", "%#{keyword}%").last(6).reverse
+      @illustrations = Illustration.where("name LIKE ?", "%#{keyword}%").last(32).reverse
     when '動画' then
-      @movies = Movie.where("name LIKE ?", "%#{keyword}%").last(6).reverse
+      @movies = Movie.where("name LIKE ?", "%#{keyword}%").last(32).reverse
     end
   end
 end
